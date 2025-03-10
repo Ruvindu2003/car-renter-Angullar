@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 p-6 bg-[url('your-image-url-here')] bg-cover bg-center">
+    <form [formGroup]="loginform" 
+        class="w-full max-w-sm bg-white bg-opacity-90 backdrop-blur-lg p-8 rounded-xl shadow-2xl">
+        
+        
+     
+        <div class="flex justify-center mb-6">
+            <img class="w-24 h-24 rounded-full border-4 border-blue-500 shadow-md" 
+                 src="" 
+                 alt="Logo">
+                 
+        </div>
+
+    
+        <div class="mb-4">
+            <label for="email" class="block mb-2 text-sm font-semibold text-gray-800">Your Email</label>
+            <input type="email" id="email" formControlName="email"
+                   class="w-full px-4 py-2 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                   placeholder="name@example.com" required />
+        </div>
+
+    
+        <div class="mb-4">
+            <label for="password" class="block mb-2 text-sm font-semibold text-gray-800">Your Password</label>
+            <input type="password" id="password" formControlName="password"
+                   class="w-full px-4 py-2 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                   required />
+        </div>
+
+        
+        <div class="flex items-center mb-4">
+            <input id="remember" type="checkbox" 
+                   class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-2 focus:ring-blue-400">
+            <label for="remember" class="ml-2 text-sm text-gray-700">Remember me</label>
+        </div>
+
+        
+        <button type="submit"
+                class="w-full px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-semibold rounded-lg transition duration-300"(click)="login()">
+            LOGIN
+        </button>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+.image-properties{
+    height: 100%;
+    width: 100%;
+    filter: brightness(-25);
+    opacity: 1.2;
+}
+img {
+    border-radius: 50%; /* Circle shape */
+    border: 4px solid #3b82f6; /* Blue border color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}

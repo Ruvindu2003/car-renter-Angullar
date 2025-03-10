@@ -1,0 +1,58 @@
+@import "flowbite/src/themes/default";
+@import "tailwindcss";
+
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #1d4ed8; 
+    border-radius: 0.125rem; 
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1e40af; 
+  }
+  
+  
+  @media (prefers-color-scheme: dark) {
+    .btn-primary {
+      background-color: #2563eb; 
+    }
+    .btn-primary:hover {
+      background-color: #1d4ed8; 
+    }
+  }
+  
+  
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #1d4ed8; /* text-blue-700 */
+    border: 1px solid #1d4ed8; /* border-blue-700 */
+    border-radius: 0.125rem; /* rounded-sm */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #eff6ff; 
+  }
+  
+
+  @media (prefers-color-scheme: dark) {
+    .btn-secondary {
+      color: #93c5fd; 
+      border-color: #93c5fd; 
+    }
+    .btn-secondary:hover {
+      background-color: rgba(147, 197, 253, 0.08); 
+    }
+  }

@@ -14,4 +14,12 @@ export class AuthService {
   rejister(signupRequest:any):Observable<any>{
     return this.http.post(BASICUrl+"/api/auth/signup",signupRequest)
   }
+
+  login(loginRequest:any):Observable<any>{
+
+    return this.http.post(BASICUrl +"/api/auth/login",loginRequest)
+
+
+  }
 }
+

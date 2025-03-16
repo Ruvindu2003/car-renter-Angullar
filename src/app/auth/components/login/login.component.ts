@@ -37,24 +37,26 @@ export class LoginComponent {
     }
    
 
-    this.authservice.login(this.loginform.value).subscribe((res) => {   
-      console.log(res);   
-      if (res.useId !== null) {     
-          const user = {       
-              id: res.useId,       
-              role: res.useRole     
-          };     
-          StorageService.saveToken(res.jwt);     
-          StorageService.saveUser(user);       
+this.authservice.login(this.loginform.value).subscribe((res) => {
+  console.log(res);
+  if (res.useId !== null) {
+    const user = {
+      id: res.useId,
+      role: res.useRole 
+    };
+    StorageService.saveToken(res.jwt);
+    StorageService.saveUser(user); 
 
-          if (user.role === 'ADMIN') {            
-              this.route.navigateByUrl('/admin/dashboard');      
-          } else {       
-              this.route.navigateByUrl('/customer/dashboard');             
-          }   
-      } else {     
-          this.massage.error('Bad credentials', { nzDuration: 5000 });    
-      } 
-   });
+    if (StorageService.isAdminLogin()) {
+    
+      this.route.navigateByUrl('/customer/dashboard'); 
+    } else {
+      this.route.navigateByUrl('/admin/dashbord'); 
+      
+    }
+  } else {
+    this.massage.error('Bad credentials', { nzDuration: 5000 }); 
+  }
+});
 }
 }

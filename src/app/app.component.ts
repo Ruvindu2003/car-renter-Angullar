@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule, NgClass } from '@angular/common';
 import { initFlowbite } from 'flowbite';
+import { StorageService } from './auth/services/storage/storage.service';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,NgClass,CommonModule,RouterLink],
+  imports: [RouterOutlet,CommonModule,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
   
@@ -16,5 +17,25 @@ export class AppComponent  implements OnInit{
     initFlowbite();
   }
   title = 'car-renter';
+    constructor(private router:Router){}
+    
+   isAdminLogin:boolean=StorageService.isAdminLogin()
+   isCustomerLogin:boolean=StorageService.isCustomerLogin()
 
-}
+   
+   ngOnIit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isAdminLogin = StorageService.isAdminLogin();
+        this.isCustomerLogin = StorageService.isCustomerLogin();
+      }
+    });
+  }
+  logOut(){
+    
+  }
+    
+   }
+
+  
+

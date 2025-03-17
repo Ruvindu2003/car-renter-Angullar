@@ -5,13 +5,10 @@ import { PostCarComponent } from '../../post-car/post-car.component';
 
 const routes: Routes = [
   {
-    path:"dashbord",
+    path:"dashborde",
     component:AdminDashboardComponent
   },
-  {
-    path:"car",
-    component:PostCarComponent
-  }
+ 
 ];
 
 @NgModule({

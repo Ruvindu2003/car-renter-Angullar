@@ -45,6 +45,12 @@ export class StorageService {
     return user && user.userRoles ? user.userRoles : ''; 
   }
 
+  static getUserId(): number | null {
+    const user = this.getUser();
+    console.log('User retrieved:', user);
+    return user && user.userid ? user.userid : null;
+  }
+
   static isAdminLogin(): boolean {
     const token = this.getToken();
     return token != null && this.getUserRole() === "ADMIN";
@@ -60,3 +66,4 @@ export class StorageService {
     window.localStorage.removeItem(USER);
   }
 }
+

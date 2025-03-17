@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Routes, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
-import { StorageService } from '../../services/storage/storage.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router';
+import { StorageService } from '../../services/storage/storage.service';
 import { Router } from '@angular/router';
 
 
@@ -13,12 +13,12 @@ import { Router } from '@angular/router';
   standalone: true, 
   imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   loginform!: FormGroup;
 
-  constructor(private fb: FormBuilder , private authservice: AuthService,private massage:NzMessageService,private route:Router,router:ActivatedRoute) {}
+  constructor(private fb: FormBuilder, private authservice: AuthService, private massage: NzMessageService, private route: Router, private storageService: StorageService) {}
 
   ngOnInit() {
     this.loginform = this.fb.group({
@@ -49,7 +49,7 @@ this.authservice.login(this.loginform.value).subscribe((res) => {
     StorageService.saveUser(user);
 
     if (StorageService.isAdminLogin()) {
-      this.route.navigateByUrl('/admin/dashbord'); 
+      this.route.navigateByUrl('/admin/dashborde'); 
     } else {
       this.route.navigateByUrl('/customer/dashboard'); 
     }

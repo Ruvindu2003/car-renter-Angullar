@@ -42,7 +42,7 @@ this.authservice.login(this.loginform.value).subscribe((res) => {
   if (res && res.userId && res.userRole) {
     const user = {
       jwt: res.jwt,
-      userRoles: res.userRole,
+      userRole: res.userRoles,
       userid: res.userId
     };
     StorageService.saveToken(res.jwt);

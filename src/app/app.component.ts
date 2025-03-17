@@ -15,22 +15,20 @@ import { StorageService } from './auth/services/storage/storage.service';
 export class AppComponent  implements OnInit{
   ngOnInit(): void {
     initFlowbite();
-  }
-  title = 'car-renter';
-    constructor(private router:Router){}
-    
-   isAdminLogin:boolean=StorageService.isAdminLogin()
-   isCustomerLogin:boolean=StorageService.isCustomerLogin()
-
-   
-   ngOnIit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isAdminLogin = StorageService.isAdminLogin();
         this.isCustomerLogin = StorageService.isCustomerLogin();
       }
     });
+   
   }
+  title = 'car-renter';
+    constructor(private router:Router){}
+    
+    isAdminLogin:boolean=StorageService.isAdminLogin()
+    isCustomerLogin:boolean=StorageService.isCustomerLogin()
+   
   logOut(){
     
   }

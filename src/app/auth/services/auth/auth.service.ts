@@ -16,10 +16,7 @@ export class AuthService {
   }
 
   login(loginRequest:any):Observable<any>{
-
     return this.http.post(BASICUrl +"/api/auth/login",loginRequest)
-
-
   }
 }
 

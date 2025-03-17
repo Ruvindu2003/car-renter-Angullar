@@ -22,7 +22,7 @@ export class LoginComponent {
 
   ngOnInit() {
     this.loginform = this.fb.group({
-      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -39,20 +39,19 @@ export class LoginComponent {
 
 this.authservice.login(this.loginform.value).subscribe((res) => {
   console.log(res);
-  if (res.useId !== null) {
+  if (res && res.userId && res.userRole) {
     const user = {
-      id: res.useId,
-      role: res.useRole 
+      jwt: res.jwt,
+      userRoles: res.userRole,
+      userid: res.userId
     };
     StorageService.saveToken(res.jwt);
-    StorageService.saveUser(user); 
+    StorageService.saveUser(user);
 
     if (StorageService.isAdminLogin()) {
-    
-      this.route.navigateByUrl('/customer/dashboard'); 
-    } else {
       this.route.navigateByUrl('/admin/dashbord'); 
-      
+    } else {
+      this.route.navigateByUrl('/customer/dashboard'); 
     }
   } else {
     this.massage.error('Bad credentials', { nzDuration: 5000 }); 

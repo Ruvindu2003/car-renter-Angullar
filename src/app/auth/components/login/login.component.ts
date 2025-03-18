@@ -39,7 +39,7 @@ export class LoginComponent {
 
 this.authservice.login(this.loginform.value).subscribe((res) => {
   console.log(res);
-  if (res && res.userId && res.userRole) {
+  if (res && res.userid && res.userRoles) {
     const user = {
       jwt: res.jwt,
       userRole: res.userRoles,
@@ -55,6 +55,7 @@ this.authservice.login(this.loginform.value).subscribe((res) => {
     }
   } else {
     this.massage.error('Bad credentials', { nzDuration: 5000 }); 
+    
   }
 });
 }

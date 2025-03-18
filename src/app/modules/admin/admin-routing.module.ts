@@ -8,6 +8,10 @@ const routes: Routes = [
     path:"dashborde",
     component:AdminDashboardComponent
   },
+  {
+    path:"car",
+    component:PostCarComponent
+  }
  
 ];
 

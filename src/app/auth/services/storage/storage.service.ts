@@ -39,10 +39,10 @@ export class StorageService {
     return window.localStorage.getItem(TOKEN);
   }
 
-  static getUserRole(): string {
+  static getUserRoles(): string {
     const user = this.getUser();
     console.log('User retrieved:', user);
-    return user && user.userRoles ? user.userRoles : ''; 
+    return user && user.userRole ? user.userRole : ''; 
   }
 
   static getUserId(): number | null {
@@ -53,12 +53,15 @@ export class StorageService {
 
   static isAdminLogin(): boolean {
     const token = this.getToken();
-    return token != null && this.getUserRole() === "ADMIN";
+    console.log('Token retrieved Check:', token);
+    const userRole = this.getUserRoles();
+    return token != null && userRole != null && userRole === "ADMIN";
   }
   
   static isCustomerLogin(): boolean {
     const token = this.getToken();
-    return token != null && this.getUserRole() === "CUSTOMER";
+    const userRole = this.getUserRoles();
+    return token != null && userRole != null && userRole === "CUSTOMER";
   }
 
   static logout(): void {

@@ -1,7 +1,7 @@
 <div class="max-w-4xl mx-auto mt-10 p-8 bg-cover bg-center rounded-xl shadow-lg" style="background-image: url('https://www.pexels.com/photo/person-in-grey-shirt-handing-keys-97079/');">
   <div class="bg-white bg-opacity-80 p-8 rounded-xl">
     <h2 class="text-3xl font-semibold text-gray-800 mb-8 text-center">Post Car Details</h2>
-    <form class="space-y-6" [formGroup]="postCarForm" (ngSubmit)="postCar()">
+    <form class="space-y-6" [formGroup]="postCarForm">
       <!-- Name -->
       <div class="mb-4">
         <label for="name" class="block text-lg font-medium text-gray-700">Car Name</label>
@@ -11,7 +11,7 @@
       <!-- Color -->
       <div class="mb-4">
         <label for="color" class="block text-lg font-medium text-gray-700">Color</label>
-        <select id="color" formControlName="colour" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
+        <select id="color" formControlName="color" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
           <option *ngFor="let color of lisOfColours" [value]="color">{{ color }}</option>
         </select>
       </div>
@@ -20,7 +20,7 @@
       <div class="mb-4">
         <label for="transmission" class="block text-lg font-medium text-gray-700">Transmission</label>
         <select id="transmission" formControlName="transmission" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
-          <option *ngFor="let tramsmisson of listOfTransmission" [value]="tramsmisson">{{ tramsmisson }}</option>
+          <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
         </select>
       </div>
 
@@ -40,10 +40,12 @@
         </select>
       </div>
 
-     
+      <!-- Drive Type -->
       <div class="mb-4">
-        <label for="year" class="block text-lg font-medium text-gray-700">Model Year</label>
-        <input type="number" id="year" formControlName="moddleDate" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm" placeholder="Enter model year" required>
+        <label for="driveType" class="block text-lg font-medium text-gray-700">Drive Type</label>
+        <select id="driveType" formControlName="driveType" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
+          <option *ngFor="let driveType of listOfDriveType" [value]="driveType">{{ driveType }}</option>
+        </select>
       </div>
 
       <div class="mb-4">
@@ -65,9 +67,16 @@
 
     
       <div class="text-right space-x-4">
-        <button type="submit" class="px-8 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg text-lg shadow-md focus:outline-none">Submit</button>
-        <button type="reset" class="px-8 py-3 text-white bg-red-600 hover:bg-red-700 rounded-lg text-lg shadow-md focus:outline-none">Reset</button>
+        <!-- Submit Button -->
+        <button type="submit" class="px-8 py-3 text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-lg text-lg font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:from-blue-600 dark:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800" (click)="postCar()">
+          Submit
+        </button>
+      
+        <!-- Reset Button -->
+        <button type="reset" class="px-8 py-3 text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-lg text-lg font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:from-red-600 dark:to-red-700 dark:hover:from-red-700 dark:hover:to-red-800">
+          Reset
+        </button>
       </div>
-    </form>
+      </form>
   </div>
 </div>

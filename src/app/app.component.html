@@ -1,4 +1,4 @@
-<div >
+<div *ngIf="!isAdminLogin && !isCustomerLogin">
   
 <nav class="bg-white border-gray-200 dark:bg-gray-900"  >
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -48,7 +48,7 @@
           <a routerLink="/Home" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
         </li>
         <li>
-          <a routerLink="/admin/dashbord" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Admin Dashboard</a>
+          <a routerLink="/admin/dashborde" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Admin Dashboard</a>
         </li>
         <li>
           <a routerLink="/admin/car" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Post Car</a>

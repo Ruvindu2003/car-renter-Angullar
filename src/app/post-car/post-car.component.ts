@@ -36,12 +36,6 @@ listofBrand=['Toyota','Honda','Nissan','Mazda','Subaru','Mitsubishi','Suzuki',
 
 
 
-  
-  
-
-
-
-
   ngOnInit() {
 this.postCarForm = this.fb.group({
   brand: [null, [Validators.required]],

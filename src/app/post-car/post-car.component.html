@@ -1,64 +1,73 @@
-<div class="max-w-4xl mx-auto mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-  <h2 class="text-2xl font-bold text-gray-800 mb-6">Post Car Details</h2>
-  <form>
-    <!-- Name -->
-    <div class="mb-4">
-      <label for="name" class="block text-sm font-medium text-gray-700">Car Name</label>
-      <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter car name" required>
-    </div>
+<div class="max-w-4xl mx-auto mt-10 p-8 bg-cover bg-center rounded-xl shadow-lg" style="background-image: url('https://www.pexels.com/photo/person-in-grey-shirt-handing-keys-97079/');">
+  <div class="bg-white bg-opacity-80 p-8 rounded-xl">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-8 text-center">Post Car Details</h2>
+    <form class="space-y-6" [formGroup]="postCarForm" (ngSubmit)="postCar()">
+      <!-- Name -->
+      <div class="mb-4">
+        <label for="name" class="block text-lg font-medium text-gray-700">Car Name</label>
+        <input type="text" id="name" formControlName="name" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm" placeholder="Enter car name" required>
+      </div>
 
-    <!-- Color -->
-    <div class="mb-4">
-      <label for="color" class="block text-sm font-medium text-gray-700">Color</label>
-      <input type="text" id="color" name="color" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter car color" required>
-    </div>
+      <!-- Color -->
+      <div class="mb-4">
+        <label for="color" class="block text-lg font-medium text-gray-700">Color</label>
+        <select id="color" formControlName="colour" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
+          <option *ngFor="let color of lisOfColours" [value]="color">{{ color }}</option>
+        </select>
+      </div>
 
-    <!-- Transmission -->
-    <div class="mb-4">
-      <label for="transmission" class="block text-sm font-medium text-gray-700">Transmission</label>
-      <input type="text" id="transmission" name="transmission" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter transmission type" required>
-    </div>
+      <!-- Transmission -->
+      <div class="mb-4">
+        <label for="transmission" class="block text-lg font-medium text-gray-700">Transmission</label>
+        <select id="transmission" formControlName="transmission" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
+          <option *ngFor="let tramsmisson of listOfTransmission" [value]="tramsmisson">{{ tramsmisson }}</option>
+        </select>
+      </div>
 
-    <!-- Brand -->
-    <div class="mb-4">
-      <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
-      <input type="text" id="brand" name="brand" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter car brand" required>
-    </div>
+      <!-- Brand -->
+      <div class="mb-4">
+        <label for="brand" class="block text-lg font-medium text-gray-700">Brand</label>
+        <select id="brand" formControlName="brand" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
+          <option *ngFor="let brand of listofBrand" [value]="brand">{{ brand }}</option>
+        </select>
+      </div>
 
-    <!-- Type -->
-    <div class="mb-4">
-      <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
-      <input type="text" id="type" name="type" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter car type" required>
-    </div>
+      <!-- Type -->
+      <div class="mb-4">
+        <label for="type" class="block text-lg font-medium text-gray-700">Type</label>
+        <select id="type" formControlName="type" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm">
+          <option *ngFor="let type of listofType" [value]="type">{{ type }}</option>
+        </select>
+      </div>
 
-    <!-- Model Date -->
-    <div class="mb-4">
-      <label for="modelDate" class="block text-sm font-medium text-gray-700">Model Date</label>
-      <input type="date" id="modelDate" name="modelDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
-    </div>
+     
+      <div class="mb-4">
+        <label for="year" class="block text-lg font-medium text-gray-700">Model Year</label>
+        <input type="number" id="year" formControlName="moddleDate" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm" placeholder="Enter model year" required>
+      </div>
 
-    <!-- Description -->
-    <div class="mb-4">
-      <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-      <textarea id="description" name="description" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter car description" required></textarea>
-    </div>
+      <div class="mb-4">
+        <label for="description" class="block text-lg font-medium text-gray-700">Description</label>
+        <textarea id="description" formControlName="description" rows="4" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm" placeholder="Enter car description" required></textarea>
+      </div>
 
-    <!-- Price -->
-    <div class="mb-4">
-      <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-      <input type="number" id="price" name="price" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter car price" required>
-    </div>
+      
+      <div class="mb-4">
+        <label for="price" class="block text-lg font-medium text-gray-700">Price</label>
+        <input type="number" id="price" formControlName="price" class="mt-2 block w-full rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg p-4 shadow-sm" placeholder="Enter car price" required>
+      </div>
 
-    <!-- Image -->
-    <div class="mb-6">
-      <label for="image" class="block text-sm font-medium text-gray-700">Car Image</label>
-      <input type="file" id="image" name="image" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100">
-    </div>
+      
+      <div class="mb-6">
+        <label for="image" class="block text-lg font-medium text-gray-700">Car Image</label>
+        <input type="file" id="image" (change)="onFileSelected($event)" accept="image/*" class="mt-2 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-2 file:border-gray-300 file:text-lg file:font-semibold file:bg-gray-50 hover:file:bg-gray-100">
+      </div>
 
-    <!-- Submit Button -->
-    <div class="text-right">
-      <button type="submit" class="px-6 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow-md">Submit</button>
-      <button type="reset" class="px-6 py-2 text-white bg-red-600 hover:bg-red-700 rounded-md shadow-md ml-2">Reset</button>
-    </div>
-  </form>
+    
+      <div class="text-right space-x-4">
+        <button type="submit" class="px-8 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg text-lg shadow-md focus:outline-none">Submit</button>
+        <button type="reset" class="px-8 py-3 text-white bg-red-600 hover:bg-red-700 rounded-lg text-lg shadow-md focus:outline-none">Reset</button>
+      </div>
+    </form>
+  </div>
 </div>

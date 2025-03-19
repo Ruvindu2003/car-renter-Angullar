@@ -1,0 +1,9 @@
+
+:host {
+    display: block;
+    background-image: url('/https://www.bing.com/ck/a?!&&p=94f4e85269ff3c219365a77713bf72f87952a9a699db07a40541ee713435edfaJmltdHM9MTc0MjI1NjAwMA&ptn=3&ver=2&hsh=4&fclid=04ebc0ed-b62e-6903-03e0-d585b7b5681b&u=a1L2ltYWdlcy9zZWFyY2g_cT1iYWNrJTIwZ3JvdW5kJTIwJTIwaW1hZ2VzJTIwY2FyJTIwcmVudGFsJTIwY29tcGFuaWVzJkZPUk09SVFGUkJBJmlkPTg3MEYwMzIzMDJDQUVFNzQ3MjRDODI4NjNDMEU1REZGRTFBMzQwMDM&ntb=1/images/background.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust height as needed */
+    width: 100%; /* Adjust width as needed */
+}

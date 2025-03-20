@@ -37,7 +37,7 @@
     font-size: 1rem;
     color: #1d4ed8; 
     border: 1px solid #1d4ed8; 
-    border-radius: 0.125rem; /* rounded-sm */
+    border-radius: 0.125rem; 
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     text-decoration: none;

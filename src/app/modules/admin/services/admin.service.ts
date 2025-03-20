@@ -20,6 +20,11 @@ export class AdminService {
   return authHeader.set('Authorization', 'Bearer ' + localStorage.getItem('token'));
  }
 
+ uploadImage(formData: FormData, clientId: string) {
+   const headers = { Authorization: `Client-ID ${clientId}` };
+   return this.http.post<{ data: { url: string } }>('https://api.imgur.com/3/image', formData, { headers });
+ }
+
 
 
   }

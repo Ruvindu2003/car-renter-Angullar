@@ -1,31 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 const baseUrl = ['http://localhost:8080/'];
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AdminService {
   constructor(private http: HttpClient) { 
     console.log('AdminService initialized');
   }
  postCar(car: any) {
-  return this.http.post(baseUrl + "api/admin/car", car, {
-    headers: this.createAuthenticationHeader()
-  });
+  return this.http.post(baseUrl + "api/admin/car", car);
  }
 
- private createAuthenticationHeader():HttpHeaders {
-  let authHeader=new HttpHeaders()
-  return authHeader.set('Authorization', 'Bearer ' + localStorage.getItem('token'));
+ getAllCars():Observable<any>{
+  return this.http.get(baseUrl +"api/admin/getAll")
  }
 
- uploadImage(formData: FormData, clientId: string) {
-   const headers = { Authorization: `Client-ID ${clientId}` };
-   return this.http.post<{ data: { url: string } }>('https://api.imgur.com/3/image', formData, { headers });
- }
-
+ DeletCar(id:number):Observable<any>{
+  return this.http.delete(baseUrl + "api/admin/delete/"+id);
 
 
   }
-
+}

@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Add Image</h2>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <button (click)="uploadImage()">Upload</button>
+  
+    <div *ngIf="imageUrl">
+      <h3>Added Image:</h3>
+      <img [src]="imageUrl" alt="Uploaded Image">
+    </div>
+  </div>
+  

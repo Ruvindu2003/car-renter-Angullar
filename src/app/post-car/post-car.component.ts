@@ -1,10 +1,14 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, Injectable, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AdminService } from '../modules/admin/services/admin.service';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { ImageUploadComponent } from "../auth/components/image-upload/image-upload.component";
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-post-car',
@@ -43,11 +47,10 @@ export class PostCarComponent {
       name: [null, [Validators.required]],
       type: [null, [Validators.required]],
       price: [null, [Validators.required]],
-      tramsmisson: [null, [Validators.required]],
+      tramsmisson: [this.listOfTransmission[0], [Validators.required]],
       driveType: [this.listOfDriveType[0], [Validators.required]],
       color: [this.lisOfColours[0], [Validators.required]],
       modelDate: [new Date().getFullYear(), [Validators.required]],
-      mileage: [null, [Validators.required]],
       description: [null, [Validators.required]],
       image: [null, [Validators.required]]
     });

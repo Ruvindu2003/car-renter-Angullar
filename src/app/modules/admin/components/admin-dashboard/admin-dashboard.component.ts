@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css'],
-  imports :[CommonModule]
+  imports :[CommonModule,CommonModule,RouterLink]
 })
 export class AdminDashboardComponent {
  public cars: any=[]
@@ -27,7 +28,7 @@ export class AdminDashboardComponent {
     });
   }
 
-    DelteCar(id:number){ {
+    DelteCars(id:number){ {
     this.cars=[];
    
     this.adminService.DeletCar(id).subscribe((res: any) => {

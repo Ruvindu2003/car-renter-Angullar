@@ -1,0 +1,95 @@
+
+<div class="container">
+    <h1>Update Car Details</h1>
+    <div class="image-holder">
+    <img [src]="exitngImages" alt="Uploaded Image" width="200" height="200">
+    </div>
+    <app-image-upload></app-image-upload>
+    
+    <form [formGroup]="upadateForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <select id="brand" class="form-control" formControlName="brand">
+            <option value="" disabled>Select a brand</option>
+            <option *ngFor="let brand of listofBrand" [value]="brand">{{ brand }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="name">Car Name</label>
+          <input id="name" type="text" class="form-control" formControlName="name" placeholder="Enter car name">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select id="type" class="form-control" formControlName="type">
+            <option value="" disabled>Select a type</option>
+            <option *ngFor="let type of listofType" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input id="price" type="number" class="form-control" formControlName="price" placeholder="Enter price">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="transmission">Transmission</label>
+          <select id="transmission" class="form-control" formControlName="transmission">
+            <option value="" disabled>Select transmission</option>
+            <option *ngFor="let tramsmisson of listOfTransmission" [value]="tramsmisson">{{ tramsmisson }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="driveType">Drive Type</label>
+          <select id="driveType" class="form-control" formControlName="driveType">
+            <option value="" disabled>Select drive type</option>
+            <option *ngFor="let driveType of listOfDriveType" [value]="driveType">{{ driveType }}</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="color">Color</label>
+          <select id="color" class="form-control" formControlName="color">
+            <option value="" disabled>Select a color</option>
+            <option *ngFor="let color of lisOfColours" [value]="color">{{ color }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="modelDate">Model Year</label>
+          <input id="modelDate" type="number" class="form-control" formControlName="modelDate" placeholder="Enter model year">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description" placeholder="Enter car description"></textarea>
+      </div>
+
+      
+      
+      <!-- <div class="form-group">
+        <label for="image">Image URL</label>
+        <input id="image" type="text" class="form-control" formControlName="image" placeholder="Enter image URL">
+        <div class="form-hint">Enter a valid URL for the car image</div>
+      </div> -->
+      
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" (click)="update()">Upadate</button>
+   
+      </div>
+    </form>
+  </div>
+
+
+
+

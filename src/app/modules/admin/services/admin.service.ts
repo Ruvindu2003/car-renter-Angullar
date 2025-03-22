@@ -20,8 +20,17 @@ export class AdminService {
  }
 
  DeletCar(id:number):Observable<any>{
-  return this.http.delete(baseUrl + "api/admin/delete/"+id);
+  return this.http.delete(baseUrl + "api/admin/Delete/"+id);
 
 
   }
-}
+
+  UpdateCar(id:number,car:any):Observable<any>{
+    return this.http.put(baseUrl + "api/admin/Update-By-Car/"+id,car);
+  }
+
+  getCarById(id:number):Observable<any>{
+    return this.http.get(baseUrl + "api/admin/Search-By-Id/"+id);
+  }
+  }
+

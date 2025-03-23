@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { Routes, RouterModule,  } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,7 @@ import { Routes, RouterModule,  } from '@angular/router';
   imports: [
     CommonModule,
     CustomerRoutingModule,RouterModule,
+    ReactiveFormsModule,FormsModule
 
   ]
 })

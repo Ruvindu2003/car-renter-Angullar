@@ -15,7 +15,7 @@ export class StorageService {
     window.localStorage.setItem(TOKEN, token);
   }
 
-  static saveUser(user: { jwt: string; userRoles?: string; userid?: number }): void {
+  static saveUser(user: { jwt: string; userRoles?: string; userid?: string }): void {
     window.localStorage.removeItem(USER);
     window.localStorage.setItem(USER, JSON.stringify(user));
     console.log('User saved:', user);

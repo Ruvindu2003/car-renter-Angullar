@@ -1,80 +1,92 @@
-]<div class="container mx-auto px-4 py-8">
-    <!-- Car Image Carousel -->
+<div class="container mx-auto px-4 py-8">
+   
     <div class="relative mb-8 group">
         <div class="image-holder relative overflow-hidden rounded-2xl shadow-xl">
-            <img [src]="existingImages" alt="Uploaded Image" 
-                 class="w-full h-96 object-cover transform transition-transform duration-500 hover:scale-105">
+            <img [src]="existingImages"  alt="Car Image" 
+                class="w-full h-96 object-cover transform transition-transform duration-500 hover:scale-105">
             
+            <!-- Fallback if no images -->
+            <div *ngIf="existingImages.length === 0" class="w-full h-96 bg-slate-100 flex items-center justify-center">
+                <span class="text-slate-400">No images available</span>
+            </div>
+
             <!-- Gradient Overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
-            
-            <!-- Carousel controls -->
-            <button type="button" 
-                    class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
-            </button>
-            <button type="button" 
-                    class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </button>
         </div>
     </div>
 
-    <!-- Booking Form -->
+
     <form [formGroup]="bookingForm" class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-2xl border border-slate-100">
         <h2 class="text-3xl font-bold text-slate-800 mb-6">Booking Details</h2>
         
         <div class="grid gap-6 mb-6">
-            <div class="space-y-1">
-                <label class="block text-sm font-medium text-slate-600 ml-1">Car Name</label>
-                <input type="text" formControlName="name" 
-                       class="w-full p-3 rounded-xl border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm">
+      
+            <div class="space-y-4 p-4 bg-slate-50 rounded-xl">
+                <h3 class="text-lg font-semibold text-slate-700 border-b pb-2">Car Information</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">Car Name</label>
+                        <input type="text" formControlName="name" readonly
+                            class="w-full p-3 rounded-lg border border-slate-200 bg-slate-100 text-slate-600">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">Vehicle Type</label>
+                        <input type="text" formControlName="type" readonly
+                            class="w-full p-3 rounded-lg border border-slate-200 bg-slate-100 text-slate-600">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">Color</label>
+                        <input type="text" formControlName="color" readonly
+                            class="w-full p-3 rounded-lg border border-slate-200 bg-slate-100 text-slate-600">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">Year</label>
+                        <input type="text" formControlName="modelDate" readonly
+                            class="w-full p-3 rounded-lg border border-slate-200 bg-slate-100 text-slate-600">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">Transmission</label>
+                        <input type="text" formControlName="tramsmisson" readonly
+                            class="w-full p-3 rounded-lg border border-slate-200 bg-slate-100 text-slate-600">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">Daily Rate ($)</label>
+                        <input type="text" formControlName="price" readonly
+                            class="w-full p-3 rounded-lg border border-slate-200 bg-slate-100 text-slate-600">
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-6">
-                <div class="space-y-1">
-                    <label class="block text-sm font-medium text-slate-600 ml-1">Vehicle Type</label>
-                    <input type="text" formControlName="type" 
-                           class="w-full p-3 rounded-xl border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm">
+            <!-- Booking Dates Section -->
+            <div class="space-y-4 p-4 bg-blue-50 rounded-xl">
+                <h3 class="text-lg font-semibold text-slate-700 border-b pb-2">Select Dates</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">From Date</label>
+                        <input type="date" formControlName="fromDate" 
+                            class="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-sm font-medium text-slate-600">To Date</label>
+                        <input type="date" formControlName="toDate" 
+                            class="w-full p-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
                 </div>
-                <div class="space-y-1">
-                    <label class="block text-sm font-medium text-slate-600 ml-1">Color</label>
-                    <input type="text" formControlName="color" 
-                           class="w-full p-3 rounded-xl border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-6">
-                <div class="space-y-1">
-                    <label class="block text-sm font-medium text-slate-600 ml-1">Year</label>
-                    <input type="text" formControlName="modelDate" 
-                           class="w-full p-3 rounded-xl border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm">
-                </div>
-                <div class="space-y-1">
-                    <label class="block text-sm font-medium text-slate-600 ml-1">Transmission</label>
-                    <input type="text" formControlName="tramsmisson" 
-                           class="w-full p-3 rounded-xl border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm">
-                </div>
-            </div>
-
-            <div class="space-y-1">
-                <label class="block text-sm font-medium text-slate-600 ml-1">Daily Rate</label>
-                <input type="text" formControlName="price" 
-                       class="w-full p-3 rounded-xl border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm">
             </div>
         </div>
 
-        <div class="flex justify-end gap-3">
-            <button type="button" 
-                    class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Book Now →
+        <!-- Action Buttons -->
+        <div class="flex justify-end gap-3 mt-8">
+            <button type="button" (click)="bookCar()" [disabled]="isSpinning || !bookingForm.valid"
+                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                <span *ngIf="!isSpinning">Book Now</span>
+                <span *ngIf="isSpinning" class="animate-spin">⏳</span>
+                <svg *ngIf="!isSpinning" class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
             </button>
-            <button type="button"
-                    class="px-6 py-3 border border-slate-200 hover:border-slate-300 bg-white text-slate-700 font-semibold rounded-xl transition-all duration-300 hover:bg-slate-50 shadow-sm hover:shadow-md">
+            <button type="button" 
+                class="px-6 py-3 border border-slate-200 hover:border-slate-300 bg-white text-slate-700 font-semibold rounded-lg transition-all hover:bg-slate-50">
                 Cancel
             </button>
         </div>

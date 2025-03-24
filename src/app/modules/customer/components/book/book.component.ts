@@ -11,14 +11,14 @@ import { StorageService } from '../../../../auth/services/storage/storage.servic
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './book.component.html',
-  styleUrl: './book.component.css'
+  styleUrls: ['./book.component.css']
 })
 export class BookComponent {
   id: number;
   bookingForm!: FormGroup;
   cars: any[] = [];
   existingImages: string[] = [];
-  isSpinning: boolean = false; // Fixed typo
+  isSpinning: boolean = false; 
   dateFormate = 'yyyy-MM-dd';
 
   constructor(
@@ -45,6 +45,7 @@ export class BookComponent {
       fromDate: [null, [Validators.required]], 
       toDate: [null, [Validators.required]]   
     });
+    
   }
 
   private getCarById(): void {
@@ -53,9 +54,8 @@ export class BookComponent {
         this.bookingForm.patchValue(res);
         this.existingImages = res.image || [];
       },
-      error: (err) => {
+      error: () => {
         this.message.error('Error loading car details');
-        console.error(err);
       }
     });
   }
@@ -68,6 +68,13 @@ export class BookComponent {
       toDate: formValue.toDate,
       userid: StorageService.getUserId()
     };
+    
+    console.log("user id="+obj.userid);
+    console.log(obj.fromDate);
+    console.log(obj.toDate);
+    console.log("carid="+this.id);
+
+    
     this.customerService.bookACar(this.id, obj).subscribe({
       next: (res) => {
         console.log(res);
@@ -75,9 +82,11 @@ export class BookComponent {
         this.isSpinning = false;
       },
       error: (err) => {
+        console.log(err);
         this.message.error('Booking failed');
         this.isSpinning = false;
       }
-    });
+});
   }
+
 }

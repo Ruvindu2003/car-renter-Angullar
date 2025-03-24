@@ -1,10 +1,11 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { Component, Injectable, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AdminService } from '../modules/admin/services/admin.service';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
-import { ImageUploadComponent } from "../auth/components/image-upload/image-upload.component";
+import { ImageUploadComponent } from '../../auth/components/image-upload/image-upload.component';
+import { AdminService } from '../../modules/admin/services/admin.service';
+import { ImageCompPathService } from '../../services/image-comp-path.service';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,7 @@ export class PostCarComponent {
   lisOfColours: string[] = ["Red", "Blue", "Green", "Yellow", "Black", "White", "Silver", "Grey", "Brown", "Orange", "Purple", "Pink"];
   listOfDriveType: string[] = ["2WD", "4WD", "AWD"];
 
-  constructor(private fb: FormBuilder, private adminservice: AdminService, private router: Router, private notification: NzNotificationService) { }
+  constructor(private fb: FormBuilder, private adminservice: AdminService, private router: Router, private notification: NzNotificationService,private imgcomppathservice:ImageCompPathService) { }
   
   public imageUrlCaptured: string = '';
   status: string = '';
@@ -61,6 +62,7 @@ export class PostCarComponent {
   }
 
   postCar() {
+    this.imageUrlCaptured = this.imgcomppathservice.getImageUrl();
     const car = {
       name: this.postCarForm.value.name,
       color: this.postCarForm.value.color,

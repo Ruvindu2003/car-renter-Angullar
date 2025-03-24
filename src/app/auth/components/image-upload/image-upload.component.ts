@@ -1,7 +1,10 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { PostCarComponent } from '../../../post-car/post-car.component';
+import { PostCarComponent } from '../../../page/post-car/post-car.component';
+import { UpdateFormComponent } from '../../../page/update-form/update-form.component';
+import { ImageCompPathService } from '../../../services/image-comp-path.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +19,9 @@ import { PostCarComponent } from '../../../post-car/post-car.component';
 export class ImageUploadComponent {
   selectedFile!: File;
   imageUrl: string = '';
+  imageurlcomplocation = '';
 
-  constructor(private http: HttpClient,private postcar:PostCarComponent) {}
+  constructor(private http: HttpClient,private imagecomppath:ImageCompPathService) {}
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -36,7 +40,7 @@ export class ImageUploadComponent {
       .subscribe({
         next: (response: any) => {
           this.imageUrl = response;
-          this.postcar.imageUrlCaptured = this.imageUrl;
+          this.imagecomppath.setImageUrl(this.imageUrl);
         },
         error: (err) => {
           alert("Upload failed: " + err.message);

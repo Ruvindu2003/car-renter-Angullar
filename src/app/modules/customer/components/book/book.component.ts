@@ -60,7 +60,7 @@ export class BookComponent {
     });
   }
 
-  bookCar() { // Removed parameter
+  bookCar() { 
     this.isSpinning = true;
     const formValue = this.bookingForm.value;
     const obj = {

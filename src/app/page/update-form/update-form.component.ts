@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { AdminService } from '../../modules/admin/services/admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ImageUploadComponent } from '../../auth/components/image-upload/image-upload.component';
 import { routes } from '../../app.routes';
+import { ImageCompPathService } from '../../services/image-comp-path.service';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-update-form',
@@ -35,7 +40,7 @@ imageUrlCaptured: string | null = null;
 iamgChange: boolean = false;
 
 
-constructor(private adminService: AdminService, private activeRoute: ActivatedRoute, private fb: FormBuilder) {
+constructor(private adminService: AdminService, private activeRoute: ActivatedRoute, private fb: FormBuilder, private imgcomppathservice:ImageCompPathService) {
   this.id = Number(this.activeRoute.snapshot.params['id']);
   this.upadateForm=this.fb.group({
       brand: [null, [Validators.required]],
@@ -85,6 +90,7 @@ previewImage() {
 }
 
 update() {
+  this.imageUrlCaptured = this.imgcomppathservice.getImageUrl();
   const car = {
     name: this.upadateForm.value.name, 
     color: this.upadateForm.value.color,
@@ -99,6 +105,9 @@ update() {
 
   this.adminService.UpdateCar(this.id, car).subscribe({
     next: (response: any) => {
+
+      console.log(response);
+      
       console.log('Car updated successfully:', response);
       alert('Car updated successfully!');
     },

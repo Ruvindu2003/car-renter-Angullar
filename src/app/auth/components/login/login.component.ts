@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ActivatedRoute } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
 import { Router } from '@angular/router';
+import { CustomerModule } from '../../../modules/customer/customer.module';
+import { NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'app-login',
   standalone: true, 
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule,CustomerModule,NgIf],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -58,5 +60,25 @@ this.authservice.login(this.loginform.value).subscribe((res) => {
     
   }
 });
+}
+  
+showPassword = false;
+
+
+passwordFormControl = new FormControl('', [
+  Validators.required,
+  Validators.minLength(8),
+  this.passwordStrengthValidator
+]);
+
+private passwordStrengthValidator(control: AbstractControl): ValidationErrors | null {
+  const value = control.value;
+  if (!value) return null;
+
+  const hasUpperCase = /[A-Z]/.test(value);
+  const hasNumber = /\d/.test(value);
+  const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(value);
+
+  return hasUpperCase && hasNumber && hasSpecialChar ? null : { strength: true };
 }
 }

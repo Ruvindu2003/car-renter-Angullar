@@ -63,19 +63,27 @@ export class BookComponent {
   bookCar() { 
     this.isSpinning = true;
     const formValue = this.bookingForm.value;
+    const userid = StorageService.getUserId(); 
+  
+    if (!userid) {
+      this.message.error('User ID not found in local storage');
+      this.isSpinning = false;
+      return;
+    }
+  
     const obj = {
       fromDate: formValue.fromDate,
       toDate: formValue.toDate,
-      userid: StorageService.getUserId()
+      userid: userid, 
+      carId: this.id  
     };
-    
-    console.log("user id="+obj.userid);
-    console.log(obj.fromDate);
-    console.log(obj.toDate);
-    console.log("carid="+this.id);
-
-    
-    this.customerService.bookACar(this.id, obj).subscribe({
+  
+    console.log("User ID: " + obj.userid);
+    console.log("Car ID: " + obj.carId);
+    console.log("From Date: " + obj.fromDate);
+    console.log("To Date: " + obj.toDate);
+  
+    this.customerService.bookACar(this.id, obj).subscribe({ 
       next: (res) => {
         console.log(res);
         this.message.success('Car booked successfully');
@@ -86,7 +94,6 @@ export class BookComponent {
         this.message.error('Booking failed');
         this.isSpinning = false;
       }
-});
+    });
   }
-
-}
+}  

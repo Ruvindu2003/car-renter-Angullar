@@ -1,0 +1,22 @@
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">From Date</th>
+                <th scope="col" class="px-6 py-3">To Date</th>
+                <th scope="col" class="px-6 py-3">Days</th>
+                <th scope="col" class="px-6 py-3">Price</th>
+                <th scope="col" class="px-6 py-3">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bookCar of bookCar" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4">{{ bookCar.fromDate|date:'MMM d,y' }}</td>
+                <td class="px-6 py-4">{{ bookCar.toDate|date:'MMM d,y'}}</td>
+                <td class="px-6 py-4">{{bookCar.days  }}</td>
+                <td class="px-6 py-4">{{ bookCar. amount}}</td>
+                <td class="px-6 py-4">{{ bookCar.bookCarStatus}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

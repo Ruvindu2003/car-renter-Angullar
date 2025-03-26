@@ -75,11 +75,10 @@ export class BookComponent {
       fromDate: formValue.fromDate,
       toDate: formValue.toDate,
       userid: userid, 
-      carId: this.id  
     };
+
   
-    console.log("User ID: " + obj.userid);
-    console.log("Car ID: " + obj.carId);
+    console.log("Book ID: " + obj.userid);
     console.log("From Date: " + obj.fromDate);
     console.log("To Date: " + obj.toDate);
   
@@ -90,8 +89,9 @@ export class BookComponent {
         this.isSpinning = false;
       },
       error: (err) => {
+        
         console.log(err);
-        this.message.error('Booking failed');
+        this.message.error(err);
         this.isSpinning = false;
       }
     });

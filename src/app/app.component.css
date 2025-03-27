@@ -1,14 +1,17 @@
 @import "flowbite/src/themes/default";
 @import "tailwindcss";
+@import "flowbite/src/themes/default";
 
 
-/* Main navbar styling */
+
+
+
 nav {
   background-image: linear-gradient(to right, #3b82f6, #9333ea);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Container for navbar content */
+
 nav > div {
   max-width: 1280px;
   display: flex;
@@ -20,29 +23,29 @@ nav > div {
   padding: 1rem;
 }
 
-/* Logo container */
+
 nav a.flex {
   display: flex;
   align-items: center;
 }
 
-/* Space between logo and text */
+
 .space-x-3 > * + * {
   margin-left: 0.75rem;
 }
 
-/* RTL support for spacing */
+
 .rtl\:space-x-reverse > * + * {
   margin-right: 0.75rem;
   margin-left: 0;
 }
 
-/* Logo image */
+
 nav img {
   height: 2rem;
 }
 
-/* App name text */
+
 nav span.self-center {
   align-self: center;
   font-size: 1.5rem;
@@ -51,7 +54,6 @@ nav span.self-center {
   color: white;
 }
 
-/* Mobile menu button */
 nav button {
   display: inline-flex;
   align-items: center;
@@ -73,7 +75,7 @@ nav button:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
 }
 
-/* Hidden text for accessibility */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -86,13 +88,13 @@ nav button:focus {
   border-width: 0;
 }
 
-/* SVG icon in button */
+
 nav button svg {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-/* Menu container */
+
 #navbar-default {
   display: none;
   width: 100%;
@@ -100,7 +102,6 @@ nav button svg {
   margin-top: 0.75rem;
 }
 
-/* Show menu on larger screens */
 @media (min-width: 768px) {
   #navbar-default {
     display: block;
@@ -112,7 +113,7 @@ nav button svg {
   }
 }
 
-/* Menu list */
+
 nav ul {
   font-weight: 500;
   display: flex;
@@ -144,7 +145,7 @@ nav ul {
   }
 }
 
-/* Menu links */
+
 nav ul a {
   display: block;
   padding: 0.5rem 0.75rem;

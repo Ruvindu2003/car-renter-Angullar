@@ -1,0 +1,108 @@
+/* Custom Table Styles */
+.booking-table {
+    --primary-color: #3b82f6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --hover-bg: #f8fafc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.booking-table:hover {
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.1);
+}
+
+.booking-table thead {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.booking-table th {
+    font-weight: 600;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 16px 24px;
+}
+
+.booking-table td {
+    padding: 14px 24px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+.booking-table tr:last-child td {
+    border-bottom: none;
+}
+
+.booking-table tr:hover td {
+    background-color: var(--hover-bg);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.status-confirmed {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.status-pending {
+    background-color: #fef9c3;
+    color: #ca8a04;
+}
+
+.status-cancelled {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+/* Price Styling */
+.price-cell {
+    font-weight: 600;
+    color: #1e293b;
+    position: relative;
+}
+
+.price-cell::before {
+    content: "₹";
+    margin-right: 4px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+/* Date Styling */
+.date-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-table {
+        font-size: 0.9rem;
+    }
+    
+    .booking-table th,
+    .booking-table td {
+        padding: 12px 16px;
+    }
+}

@@ -3,7 +3,7 @@ import { CustomerService } from '../../services/customer.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { StorageService } from '../../../../auth/services/storage/storage.service';
 
 @Component({
@@ -74,11 +74,11 @@ export class BookComponent {
     const obj = {
       fromDate: formValue.fromDate,
       toDate: formValue.toDate,
-      userid: userid, 
+      userId: userid, 
     };
 
   
-    console.log("Book ID: " + obj.userid);
+    console.log("Book ID: " + obj.userId);
     console.log("From Date: " + obj.fromDate);
     console.log("To Date: " + obj.toDate);
   

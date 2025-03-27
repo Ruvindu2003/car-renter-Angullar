@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { UpdateFormComponent } from '../../page/update-form/update-form.component';
 import { PostCarComponent } from '../../page/post-car/post-car.component';
+import { GetAdminBookingsComponent } from './components/get-admin-bookings/get-admin-bookings.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path:"car/:id/edit",
     component:UpdateFormComponent
+  },
+  {
+    path:"bookings",
+    component:GetAdminBookingsComponent
+
   }
  
 ];

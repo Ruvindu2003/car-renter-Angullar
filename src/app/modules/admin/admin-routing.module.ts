@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { UpdateFormComponent } from '../../page/update-form/update-form.component';
 import { PostCarComponent } from '../../page/post-car/post-car.component';
-import { GetAdminBookingsComponent } from './components/get-admin-bookings/get-admin-bookings.component';
+import { GetBookingComponent } from '../customer/components/get-booking/get-booking.component';
+
 
 const routes: Routes = [
   {
@@ -20,9 +21,10 @@ const routes: Routes = [
   },
   {
     path:"bookings",
-    component:GetAdminBookingsComponent
+    component:GetBookingComponent
 
   }
+
  
 ];
 

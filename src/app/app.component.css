@@ -1,10 +1,5 @@
 @import "flowbite/src/themes/default";
 @import "tailwindcss";
-@import "flowbite/src/themes/default";
-
-
-
-
 
 nav {
   background-image: linear-gradient(to right, #3b82f6, #9333ea);

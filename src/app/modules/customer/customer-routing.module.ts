@@ -4,6 +4,7 @@ import { CustomerDashboardComponent } from './components/customer-dashboard/cust
 import { BookComponent } from './components/book/book.component';
 import { GetBookingComponent } from './components/get-booking/get-booking.component';
 
+
 const routes: Routes = [
     {
       path: "dashboard", 
@@ -14,9 +15,10 @@ const routes: Routes = [
       component:BookComponent
     },
     {
-      path:"boookings",
+      path:"bookings",
       component:GetBookingComponent
     }
+   
   ];
 
 @NgModule({

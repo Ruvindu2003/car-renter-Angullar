@@ -5,6 +5,7 @@ import { UpdateFormComponent } from '../../page/update-form/update-form.componen
 import { PostCarComponent } from '../../page/post-car/post-car.component';
 import { GetBookingComponent } from '../customer/components/get-booking/get-booking.component';
 import { AdminBookingComponent } from './components/admin-booking/admin-booking.component';
+import { SearchCarComponent } from './components/search-car/search-car.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,13 @@ const routes: Routes = [
   {
     path:"adminbooking",
     component:AdminBookingComponent
+  },
+  {
+    path:"car/search",
+    component:SearchCarComponent
+
   }
+
 
 
  

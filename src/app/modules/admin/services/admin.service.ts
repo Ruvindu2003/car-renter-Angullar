@@ -37,8 +37,13 @@ export class AdminService {
     return this.http.get(baseUrl + "api/admin/car/booking")
     
   }
-  changeStatus(bookingId:number,status:string){
-    return this.http.get(baseUrl +`api/admin/car/Booking/ ${bookingId}/${status}`,)
+  changeStatus(bookId:number,bookCarStatus:string){
+    return this.http.get(baseUrl +`api/admin/car/Booking/ ${bookId}/${bookCarStatus}`,)
+
+  }
+
+  Searchcar(searchCardto:any):Observable<any>{
+    return this.http.post(baseUrl +"api/admin/search/car",+searchCardto)
 
   }
   }

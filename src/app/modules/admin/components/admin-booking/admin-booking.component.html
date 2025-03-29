@@ -36,15 +36,13 @@
             <td class="py-3 px-4">{{booking.days}}</td>
             <td class="py-3 px-4">${{booking.amount}}</td>
             <td class="py-3 px-4">
-
-                
               <span 
-                [class.bg-yellow-100]="booking.status === 'PENDING'"
-                [class.bg-green-100]="booking.status === 'APPROVED'"
-                [class.bg-red-100]="booking.status === 'REJECT'"
-                [class.text-yellow-800]="booking.status === 'PENDING'"
-                [class.text-green-800]="booking.status === 'APPROVED'"
-                [class.text-red-800]="booking.status === 'REJECT'"
+                [class.bg-yellow-100]="booking.bookCarStatus === 'PENDING'"
+                [class.bg-green-100]="booking.bookCarStatus === 'APPROVED'"
+                [class.bg-red-100]="booking.bookCarStatus === 'REJECT'"
+                [class.text-yellow-800]="booking.bookCarStatus === 'PENDING'"
+                [class.text-green-800]="booking.bookCarStatus === 'APPROVED'"
+                [class.text-red-800]="booking.bookCarStatus === 'REJECT'"
                 class="px-2 py-1 rounded-full text-xs font-medium"
               >
                 {{booking.bookCarStatus}}
@@ -52,27 +50,23 @@
             </td>
             <td class="py-3 px-4 flex space-x-2">
               <button 
-                *ngIf="booking.status === 'PENDING'"
-                (click)="changeBookingStatus(booking.id, 'APPROVED')"
+                *ngIf="booking.bookCarStatus === 'PENDING'"
+                (click)="changeBookingStatus(booking.bookId, 'APPROVED')"
                 class="px-3 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm"
               >
                 Approve
               </button>
               <button 
-                *ngIf="booking.status === 'PENDING'"
-                (click)="changeBookingStatus(booking.id, 'REJECT')"
+                *ngIf="booking.bookCarStatus === 'PENDING'"
+                (click)="changeBookingStatus(booking.bookId, 'REJECT')"
                 class="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm"
               >
                 Reject
               </button>
-              <span *ngIf="booking.status !== 'PENDING'" class="text-gray-500 text-sm">No action needed</span>
+              <span *ngIf="booking.bookCarStatus !== 'PENDING'" class="text-gray-500 text-sm">No action needed</span>
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-  
-    <div *ngIf="!isSpinig && (!bookcars || bookcars.length === 0)" class="text-center py-10">
-      <p class="text-gray-500">No bookings found</p>
     </div>
   </div>

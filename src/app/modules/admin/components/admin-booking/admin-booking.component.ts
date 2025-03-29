@@ -25,21 +25,15 @@ export class AdminBookingComponent {
   }
 
 
-  changeBookingStatus(bookingId: number, status: string): void {
-    this.isSpinig = true;
-    this.service.changeStatus(bookingId, status).subscribe({
-        next: (res: any) => {
-            this.isSpinig = false;
-            console.log(res);
-            this.massage.success("Status changed successfully", { nzDuration: 500 });
-        },
-        error: (err: any) => {
-            this.isSpinig = false;
-            console.error(err);
-            this.massage.error("Failed to change status. Please try again.", { nzDuration: 500 });
-        }
-    });
-}
+  changeBookingStatus(bookId:number,bookCarStatus:string){
+    this.isSpinig =true;
+    this.service.changeStatus(bookId,bookCarStatus).subscribe((res:any)=>{
+    this.isSpinig=false;
+      console.log(res);
+      this.massage.success("status changed sucessfully",{nzDuration:500})
+    })
+
+  }
   }
 
 

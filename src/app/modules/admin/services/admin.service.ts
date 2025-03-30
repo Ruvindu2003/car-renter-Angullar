@@ -42,9 +42,10 @@ export class AdminService {
 
   }
 
-  Searchcar(searchCardto:any):Observable<any>{
-    return this.http.post(baseUrl +"api/admin/search/car",+searchCardto)
-
+  Searchcar(car:any):Observable<any>{
+        return this.http.post(baseUrl +"api/admin/search/car",car)
+    //api/admin/search/car
   }
+  
   }
 

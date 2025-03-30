@@ -5,7 +5,8 @@ import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-search-car',
-  imports: [CommonModule,ReactiveFormsModule,],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './search-car.component.html',
   styleUrl: './search-car.component.css'
 })
@@ -21,48 +22,39 @@ export class SearchCarComponent {
     'Lamborghini', 'Maserati', 'Bentley', 'Rolls Royce', 'Lotus', 'McLaren', 'Bugatti', 'Aston Martin', 'Mini', 'Smart',
     'Opel', 'Seat', 'Skoda', 'Saab', 'Lancia', 'Alpina', 'Hummer', 'Pontiac', 'Saturn', 'GMC', 'Oldsmobile', 'Plymouth', 'Mercury',
     'Eagle', 'AMC', 'DeLorean', 'Morgan', 'TVR', 'MG', 'Triumph', 'Jensen', 'Lada', 'Moskvich', 'ZAZ', 'UAZ', 'GAZ', 'LuAZ', 'ZIL', 'PAZ', 'Kamaz',
-    'MAZ', 'BelAZ', 'KrAZ', 'ZiL', 'ZiS']
+    'MAZ', 'BelAZ', 'KrAZ', 'ZiL', 'ZiS'];
   listofType: string[] = ["Petrol", "Diesel", "Hybrid", "Electric"];
   listOfTransmission: string[] = ["Manual", "Automatic", "CVT", "DCT"];
   lisOfColours: string[] = ["Red", "Blue", "Green", "Yellow", "Black", "White", "Silver", "Grey", "Brown", "Orange", "Purple", "Pink"];
   listOfDriveType: string[] = ["2WD", "4WD", "AWD"];
 
-  isSpining =false;
+  isSpining = false;
   validateForm!: FormGroup;
-  
-
-  constructor(private fb :FormBuilder,private adminservice:AdminService){
-    this.validateForm=this.fb.group({
-      brand:[null],
-      type:[null],
-      color:[null],
-      tramsmisson:[null]
-
-    })
-
-    
-  }
 
 
-  searchCar(){
-    console.log(this.validateForm.value);
-    this.isSpining=true;
-    this.adminservice.Searchcar(this.validateForm).subscribe((res)=>{
-      this.isSpining=false;
-      this.carList = Array.isArray(res) ? res.map((element: any) => {
-        return {
-          ...element,
-          priceImage: element.image 
-        };
-      }) : [];
-      console.log(res);
-      
+
+  constructor(private fb: FormBuilder, private adminservice: AdminService) {
+    this.validateForm = this.fb.group({
+      brand: [null],
+      type: [null],
+      color: [null],
+      transmission: [null],
+      driveType: [null]
     });
-   
-      
-   
-    
-
   }
 
+  searchCar() {
+    console.log(this.validateForm.value);
+    this.isSpining = true;
+    this.adminservice.Searchcar(this.validateForm.value).subscribe({
+      next: (res) => {
+        this.isSpining = false;
+        this.carList = Array.isArray(res) ? res : [];
+        console.log(this.carList);
+      },
+      error: (err) => {
+        this.isSpining = false;
+        console.error(err);
+      }
+    });  }
 }

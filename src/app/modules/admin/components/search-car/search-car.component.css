@@ -1,0 +1,276 @@
+/* ===== BASE STYLES ===== */
+:root {
+    --primary-blue: #3b82f6;
+    --primary-blue-dark: #2563eb;
+    --emerald-500: #10b981;
+    --emerald-600: #059669;
+    --teal-500: #14b8a6;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+  }
+  
+  /* ===== FORM CONTAINER ===== */
+  .p-6 {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+  }
+  
+  .dark .p-6 {
+    background-color: #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ===== FORM HEADER ===== */
+  .text-2xl {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--slate-800);
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .dark .text-2xl {
+    color: white;
+  }
+  
+  /* ===== FORM ELEMENTS ===== */
+  .grid.gap-6 {
+    gap: 1.5rem;
+  }
+  
+  /* Labels */
+  .text-sm.font-medium {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--slate-700);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .dark .text-sm.font-medium {
+    color: #e2e8f0;
+  }
+  
+  /* Select Dropdowns */
+  .bg-gray-50 {
+    background-color: var(--slate-100);
+    border-color: var(--slate-200);
+    transition: all 0.2s ease;
+  }
+  
+  .bg-gray-50:hover {
+    border-color: #94a3b8;
+  }
+  
+  .bg-gray-50:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  .dark .bg-gray-50 {
+    background-color: #334155;
+    border-color: #475569;
+  }
+  
+  /* ===== BUTTONS ===== */
+  .flex.justify-end {
+    margin-top: 1.5rem;
+  }
+  
+  /* Search Button */
+  .bg-blue-700 {
+    background-color: var(--primary-blue);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .bg-blue-700:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+  }
+  
+  .bg-blue-700:active {
+    transform: translateY(0);
+  }
+  
+  .dark .bg-blue-700 {
+    background-color: #2563eb;
+  }
+  
+  .dark .bg-blue-700:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Spinner Animation */
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* ===== RESULTS SECTION ===== */
+  .mt-8 {
+    margin-top: 2rem;
+  }
+  
+  /* Results Header */
+  .text-xl {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--slate-700);
+    margin-bottom: 1rem;
+  }
+  
+  .dark .text-xl {
+    color: #cbd5e1;
+  }
+  
+  /* Grid Layout */
+  .grid.grid-cols-1 {
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .md\:grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* ===== CAR CARD ===== */
+  .group {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .group:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .dark .group {
+    border-color: #475569;
+  }
+  
+  /* Image Section */
+  .relative.h-48 {
+    background-color: var(--slate-100);
+  }
+  
+  .dark .relative.h-48 {
+    background-color: #475569;
+  }
+  
+  img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .group:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Year Badge */
+  .from-emerald-600 {
+    background: linear-gradient(135deg, var(--emerald-600), var(--teal-500));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Details Section */
+  .p-6 {
+    padding: 1.5rem;
+  }
+  
+  /* Car Name */
+  .text-2xl.font-bold {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--slate-800);
+  }
+  
+  .dark .text-2xl.font-bold {
+    color: white;
+  }
+  
+  /* Type Badge */
+  .bg-emerald-100\/80 {
+    background-color: rgba(209, 250, 229, 0.8);
+    color: var(--emerald-600);
+  }
+  
+  .dark .bg-emerald-100\/80 {
+    background-color: rgba(6, 95, 70, 0.3);
+    color: #6ee7b7;
+  }
+  
+  /* Color Indicator */
+  .ring-slate-200\/50 {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(226, 232, 240, 0.5);
+  }
+  
+  .dark .ring-slate-200\/50 {
+    box-shadow: 0 0 0 2px #1e293b, 0 0 0 3px rgba(71, 85, 105, 0.5);
+  }
+  
+  /* Price Display */
+  .from-slate-50 {
+    background: linear-gradient(135deg, var(--slate-100), rgba(16, 185, 129, 0.1));
+  }
+  
+  .dark .from-slate-50 {
+    background: linear-gradient(135deg, #475569, rgba(6, 95, 70, 0.2));
+  }
+  
+  /* ===== NO RESULTS MESSAGE ===== */
+  .text-center.py-12 {
+    padding: 3rem 0;
+  }
+  
+  .fa-car {
+    opacity: 0.5;
+  }
+  
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  @media (max-width: 640px) {
+    .p-6 {
+      padding: 1rem;
+    }
+    
+    .grid.gap-6 {
+      grid-template-columns: 1fr;
+    }
+    
+    .flex.justify-end {
+      justify-content: center;
+    }
+  }
+  
+  /* ===== ENHANCED SELECT STYLING ===== */
+  select {
+    cursor: pointer;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em;
+  }
+  
+  .dark select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e2e8f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  }

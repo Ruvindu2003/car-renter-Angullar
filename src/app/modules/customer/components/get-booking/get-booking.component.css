@@ -1,108 +1,87 @@
-/* Custom Table Styles */
-.booking-table {
-    --primary-color: #3b82f6;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --danger-color: #ef4444;
-    --hover-bg: #f8fafc;
-    border-radius: 12px;
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7; /* Light background for the page */
+    color: #333;
+}
+
+/* Table Container */
+.overflow-x-auto {
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff; /* White background for the table */
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the table */
 }
 
-.booking-table:hover {
-    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.1);
+/* Table Header */
+thead {
+    background-color: #1E3A8A; /* Blue background for the header */
+    color: #ffffff; /* White text */
 }
 
-.booking-table thead {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-bottom: 2px solid #e2e8f0;
-}
-
-.booking-table th {
-    font-weight: 600;
-    color: #1e293b;
+th {
+    padding: 12px 20px;
+    text-align: left;
     text-transform: uppercase;
+    font-size: 0.875rem; /* Small but readable text */
     letter-spacing: 0.5px;
-    padding: 16px 24px;
 }
 
-.booking-table td {
-    padding: 14px 24px;
-    color: #475569;
-    border-bottom: 1px solid #f1f5f9;
-    transition: background-color 0.2s ease;
+/* Table Body */
+tbody {
+    color: #4b5563; /* Dark gray text */
 }
 
-.booking-table tr:last-child td {
-    border-bottom: none;
+tr {
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
-.booking-table tr:hover td {
-    background-color: var(--hover-bg);
+td {
+    padding: 12px 20px;
+    text-align: left;
 }
 
-/* Status Badges */
-.status-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-align: center;
+/* Row hover effect */
+tr:hover {
+    background-color: #f1f5f9; /* Light gray background on hover */
 }
 
-.status-confirmed {
-    background-color: #dcfce7;
-    color: #16a34a;
+/* Blue and White Text for the Columns */
+td:nth-child(1),
+td:nth-child(2),
+td:nth-child(3) {
+    color: #1E3A8A; /* Blue text color for date columns */
 }
 
-.status-pending {
-    background-color: #fef9c3;
-    color: #ca8a04;
+td:nth-child(4) {
+    color: #34D399; /* Green color for price */
 }
 
-.status-cancelled {
-    background-color: #fee2e2;
-    color: #dc2626;
+td:nth-child(5) {
+    font-weight: bold;
+    color: #D97706; /* Amber color for status */
 }
 
-/* Price Styling */
-.price-cell {
-    font-weight: 600;
-    color: #1e293b;
-    position: relative;
+/* Status styling */
+td:nth-child(5) {
+    font-size: 0.875rem;
+    text-transform: capitalize;
+    background-color: #FDE047; /* Soft yellow background */
+    border-radius: 4px;
+    padding: 6px 10px;
 }
 
-.price-cell::before {
-    content: "₹";
-    margin-right: 4px;
-    font-weight: 500;
-    color: #64748b;
-}
-
-/* Date Styling */
-.date-cell {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.date-icon {
-    width: 20px;
-    height: 20px;
-    color: var(--primary-color);
-}
-
-/* Responsive Design */
+/* Responsive design */
 @media (max-width: 768px) {
-    .booking-table {
-        font-size: 0.9rem;
-    }
-    
-    .booking-table th,
-    .booking-table td {
-        padding: 12px 16px;
+    th, td {
+        padding: 8px 12px;
     }
 }

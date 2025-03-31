@@ -14,7 +14,9 @@ export class AdminBookingComponent {
   bookcars :any
 
 
-  constructor(private service: AdminService,private massage:NzMessageService) { }
+  constructor(private service: AdminService,private massage:NzMessageService) {
+    this.getBooking()
+   }
 
   getBooking() {
     this.service.getBookings().subscribe((res: any) => {

@@ -1,1 +1,806 @@
- <img class="image-properties" src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binar Car Rental - Premium Vehicle Rentals</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    /* Color Palette */
+    :root {
+      --primary: #2E8B57;         /* Sea Green - Trust & Reliability */
+      --primary-dark: #1F6B3D;    /* Darker Green */
+      --primary-light: #3CB371;   /* Medium Sea Green */
+      --secondary: #1E90FF;       /* Dodger Blue - Professionalism */
+      --accent: #FF8C00;          /* Dark Orange - Energy & Action */
+      --light: #F8F9FA;           /* Light Gray */
+      --dark: #343A40;            /* Dark Gray */
+      --text: #495057;            /* Gray for text */
+      --white: #FFFFFF;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--white);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+    
+    h1, h2, h3 {
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--white);
+    }
+    
+    .btn-secondary:hover {
+      background-color: #187bcd;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      font-weight: 500;
+      color: var(--dark);
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero-image {
+      flex: 1;
+      position: relative;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 70%;
+      height: 50%;
+      background-color: var(--primary);
+      border-radius: 10px 0 0 0;
+      z-index: 1;
+    }
+    
+    /* Services Section */
+    .services {
+      background-color: var(--light);
+    }
+    
+    .services-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .services-image {
+      flex: 1;
+    }
+    
+    .services-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    
+    .services-content {
+      flex: 1;
+    }
+    
+    .service-list {
+      margin-top: 20px;
+    }
+    
+    .service-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .service-item i {
+      color: var(--primary);
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    /* Features Section */
+    .features {
+      text-align: center;
+    }
+    
+    .features-intro {
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .feature-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      background-color: var(--light);
+      text-align: center;
+    }
+    
+    .testimonial-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 30px;
+      padding: 20px 0;
+      margin: 40px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .testimonial-slider::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .testimonial-card {
+      min-width: 300px;
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      scroll-snap-align: start;
+    }
+    
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 3px solid var(--primary);
+    }
+    
+    .testimonial-rating {
+      color: #FFD700;
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .slider-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .slider-btn:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    /* CTA Section */
+    .cta {
+      background-color: var(--secondary);
+      color: var(--white);
+      text-align: center;
+      padding: 60px 0;
+      border-radius: 10px;
+      margin: 80px 0;
+    }
+    
+    .cta h2 {
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    
+    .cta p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+    
+    /* FAQ Section */
+    .faq {
+      display: flex;
+      gap: 50px;
+    }
+    
+    .faq-intro {
+      flex: 1;
+    }
+    
+    .faq-questions {
+      flex: 2;
+    }
+    
+    .faq-item {
+      margin-bottom: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px;
+      background-color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    
+    .faq-question i {
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 20px;
+      background-color: #f8f9fa;
+    }
+    
+    .faq-input {
+      display: none;
+    }
+    
+    .faq-input:checked + .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-input:checked + .faq-question + .faq-answer {
+      max-height: 200px;
+      padding: 20px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 60px 0 20px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      display: block;
+    }
+    
+    .footer-links h3 {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #adb5bd;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #adb5bd;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-content,
+      .services-container,
+      .faq {
+        flex-direction: column;
+      }
+      
+      .hero-text,
+      .hero-image,
+      .services-image,
+      .services-content,
+      .faq-intro,
+      .faq-questions {
+        width: 100%;
+      }
+      
+      .hero-image {
+        margin-top: 40px;
+      }
+      
+      .services-image {
+        order: -1;
+        margin-bottom: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .cta {
+        margin: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Best Car Rental Service in Your Area</h1>
+          <p>Welcome to Binar Car Rental. We provide the best quality cars at affordable prices. Always ready to serve your needs for car rental for 24 hours.</p>
+          <a href="#" class="btn btn-primary">Start Renting a Car</a>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Luxury Car">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="services-container">
+        <div class="services-image">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Happy Customer">
+        </div>
+        <div class="services-content">
+          <h2>Best Car Rental for any kind of trip in your location!</h2>
+          <p>Renting a car at your location with Binar Car Rental guarantees cheaper prices than others, new car conditions, and the best quality service for tourist trips, business, weddings, meetings, etc.</p>
+          <div class="service-list">
+            <div class="service-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Rent a Car with Driver 12 Hours</span>
+            </div>
+            <div class="service-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>24 Hour Keyless Car Rental</span>
+            </div>
+            <div class="service-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Monthly Long Term Car Rental</span>
+            </div>
+            <div class="service-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Free Car Pickup and Delivery at the Airport</span>
+            </div>
+            <div class="service-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Airport Transfer / Drop In Out Service</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="features-intro">
+        <h2>Why Us?</h2>
+        <p>Why should you choose Binar Car Rental?</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background-color: #FFE5CC;">
+            <i class="bi bi-car-front" style="color: var(--accent);"></i>
+          </div>
+          <h3>Complete Car</h3>
+          <p>There are many choices of cars available, condition is still new, clean and well maintained</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background-color: #FFCCCC;">
+            <i class="bi bi-tag" style="color: #E63946;"></i>
+          </div>
+          <h3>Cheap Price</h3>
+          <p>Cheap and competitive prices, you can compare our prices with other car rentals</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background-color: #CCE5FF;">
+            <i class="bi bi-clock" style="color: var(--secondary);"></i>
+          </div>
+          <h3>24 Hour Service</h3>
+          <p>Ready to serve your needs 24 hours non-stop. We are also available on weekends</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background-color: #CCFFCC;">
+            <i class="bi bi-person-badge" style="color: var(--primary);"></i>
+          </div>
+          <h3>Professional Driver</h3>
+          <p>Drivers who are professional, experienced, honest, friendly and always on time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>Testimonial</h2>
+      <p>Various positive reviews from our customers</p>
+      <div class="testimonial-slider">
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe" class="testimonial-avatar">
+          <div class="testimonial-rating">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"Their service was exceptional! The car was clean, comfortable, and delivered on time. I highly recommend Binar Car Rental for anyone looking for reliable transportation."</p>
+          <p class="testimonial-author">John Doe, New York</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Smith" class="testimonial-avatar">
+          <div class="testimonial-rating">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testimonial-text">"The driver was very professional and knew the city well. They made our trip comfortable and stress-free. I'll definitely use their services again!"</p>
+          <p class="testimonial-author">Sarah Smith, Chicago</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Johnson" class="testimonial-avatar">
+          <div class="testimonial-rating">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+          </div>
+          <p class="testimonial-text">"Great value for money! The booking process was simple, and customer support was responsive when I needed to extend my rental. Will use again!"</p>
+          <p class="testimonial-author">Michael Johnson, Los Angeles</p>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <div class="slider-btn">
+          <i class="bi bi-chevron-left"></i>
+        </div>
+        <div class="slider-btn">
+          <i class="bi bi-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <div class="container">
+    <div class="cta">
+      <h2>Rent a Car Now</h2>
+      <p>Get the best car rental experience with our premium service. Book now and enjoy your journey with comfort and style.</p>
+      <a href="#" class="btn btn-secondary">Start Renting a Car</a>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="faq">
+        <div class="faq-intro">
+          <h2>Frequently Asked Questions</h2>
+          <p>Find answers to common questions about our services</p>
+        </div>
+        <div class="faq-questions">
+          <div class="faq-item">
+            <input type="checkbox" id="faq1" class="faq-input">
+            <label for="faq1" class="faq-question">
+              What are the conditions needed?
+              <i class="bi bi-chevron-down"></i>
+            </label>
+            <div class="faq-answer">
+              <p>To rent a car, you need a valid driver's license, credit card, and must be at least 21 years old. For specific car models, additional requirements may apply. Please contact our customer service for detailed information.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <input type="checkbox" id="faq2" class="faq-input">
+            <label for="faq2" class="faq-question">
+              What is the minimum number of days to rent a car without a driver?
+              <i class="bi bi-chevron-down"></i>
+            </label>
+            <div class="faq-answer">
+              <p>The minimum rental period for self-drive cars is 24 hours. However, we offer flexible rental packages to accommodate your needs, including hourly options for certain vehicles.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <input type="checkbox" id="faq3" class="faq-input">
+            <label for="faq3" class="faq-question">
+              How many days in advance is it best to book a car rental?
+              <i class="bi bi-chevron-down"></i>
+            </label>
+            <div class="faq-answer">
+              <p>We recommend booking at least 3-5 days in advance to ensure vehicle availability, especially during peak seasons. Last-minute bookings are possible but subject to availability.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <input type="checkbox" id="faq4" class="faq-input">
+            <label for="faq4" class="faq-question">
+              Is there a shuttle fee?
+              <i class="bi bi-chevron-down"></i>
+            </label>
+            <div class="faq-answer">
+              <p>Airport pickup and drop-off services are complementary for rentals over 3 days. For shorter rentals, a nominal fee applies depending on the distance.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <input type="checkbox" id="faq5" class="faq-input">
+            <label for="faq5" class="faq-question">
+              What if an accident occurs?
+              <i class="bi bi-chevron-down"></i>
+            </label>
+            <div class="faq-answer">
+              <p>In case of an accident, contact our 24/7 emergency support immediately. All our vehicles come with insurance coverage, and our team will guide you through the necessary procedures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <a href="#" class="footer-logo">Binar Car Rental</a>
+          <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+         
+          <p>081-233-334-808</p>
+        </div>
+        <div class="footer-links">
+          <h3>Our Services</h3>
+          <ul>
+            <li><a href="#">Self Drive Rental</a></li>
+            <li><a href="#">With Driver</a></li>
+            <li><a href="#">Airport Transfer</a></li>
+            <li><a href="#">Long Term Rental</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Copyright Binar 2023 • All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

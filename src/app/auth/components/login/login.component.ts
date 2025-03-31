@@ -7,13 +7,13 @@ import { ActivatedRoute } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
 import { Router } from '@angular/router';
 import { CustomerModule } from '../../../modules/customer/customer.module';
-import { NgIf } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-login',
   standalone: true, 
-  imports: [RouterLink, ReactiveFormsModule,CustomerModule,NgIf],
+  imports: [RouterLink, ReactiveFormsModule,CustomerModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

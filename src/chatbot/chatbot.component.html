@@ -1,21 +1,43 @@
-<div class="w-96 bg-white shadow-lg rounded-lg p-4">
-    <div class="text-xl font-semibold mb-2">Chatbot</div>
-
-    <div class="h-64 overflow-y-auto border p-3 rounded-lg bg-gray-50" id="chatBox">
-        <div *ngFor="let msg of messages" [ngClass]="{'text-right': msg.sender === 'User', 'text-left': msg.sender === 'Bot'}">
-            <span [ngClass]="msg.sender === 'User' ? 'bg-gray-300 px-3 py-1 rounded-lg' : 'bg-blue-500 text-white px-3 py-1 rounded-lg'">
-                {{ msg.text }}
-            </span>
-        </div>
+<div class="chatbot-container">
+    <div class="chat-header">
+      <h2>WhatsApp Chat</h2>
     </div>
-
-    
-    <div class="flex mt-3">
-        <input [(ngModel)]="userInput" type="text" placeholder="Type a message..." 
-               class="w-full border px-3 py-2 rounded-lg focus:outline-none">
-        <button (click)="sendMessage()" 
-                class="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-            Send
-        </button>
+  
+    <div class="chat-messages" *ngIf="response">
+      <div class="message sent">
+        <p>To: {{to}}</p>
+        <p>{{text}}</p>
+        <small *ngIf="response">Sent successfully at {{response.timestamp | date:'short'}}</small>
+      </div>
     </div>
-</div>
+  
+    <div class="error-message" *ngIf="error">
+      <p class="error">{{error}}</p>
+    </div>
+  
+    <div class="chat-input">
+      <div class="input-group">
+        <input 
+          type="text" 
+          [(ngModel)]="to" 
+          placeholder="Recipient phone number"
+          class="form-control"
+        >
+      </div>
+      <div class="input-group">
+        <textarea 
+          [(ngModel)]="text" 
+          placeholder="Type your message here..."
+          class="form-control"
+          rows="3"
+        ></textarea>
+      </div>
+      <button 
+        (click)="sendWhatsAppMessage()" 
+        class="send-button"
+        [disabled]="!to || !text"
+      >
+        Send Message
+      </button>
+    </div>
+  </div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { StorageService } from '../../../auth/services/storage/storage.service';
 const baseUrl = ['http://localhost:8080/'];
 
@@ -29,7 +30,20 @@ getCustomerBooking():Observable<any>{
 return this.http.get(baseUrl + "api/customer/car/booking/"+StorageService.getUserId());
 }
 
+getWhatssapp(to:string ,text:string):Observable<any>{
+  const message = {
+    to: to.replace(/\D/g, ''), 
+    content: { text }
+  };
 
-
-
+  return this.http.post(`${baseUrl}send`, message).pipe(
+    catchError(error => {
+      // Simplify error handling
+      const errorMsg = error.error?.status?.description 
+                     || error.message 
+                     || 'Failed to send message';
+      throw new Error(errorMsg);
+    })
+  );
+}
 }

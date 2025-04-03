@@ -1,38 +1,67 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-
-import axios from 'axios';
-
-
+import { CustomerService } from '../app/modules/customer/services/customer.service';
 
 @Component({
   selector: 'app-chatbot',
-  imports: [CommonModule,FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './chatbot.component.html',
-  styleUrl: './chatbot.component.css'
+  styleUrls: ['./chatbot.component.css']
 })
 export class ChatbotComponent {
-  messages: { sender: string, text: string }[] = [];
-  userInput: string = '';
+  to: string = '';
+  text: string = '';
+  response: any;
+  error: string = '';
+  isLoading: boolean = false;
 
-  async sendMessage() {
-    if (!this.userInput.trim()) return;
+  constructor(private service: CustomerService) {}
 
-    this.messages.push({ sender: 'User', text: this.userInput });
-
-    try {
-      const response = await axios.post('https://api.whatsapp.com/send/?phone=917009075316&text=%236hTuVN&type=94781001040', {
-        message: this.userInput
-      });
-
-      this.messages.push({ sender: 'Bot', text: response.data.reply || "I'm not sure how to respond." });
-    } catch (error) {
-      this.messages.push({ sender: 'Bot', text: 'Error communicating with chatbot API.' });
-    }
-
-    this.userInput = '';
+  
+  private isValidWhatsAppNumber(number: string): boolean {
+    
+    const cleanedNumber = number.replace(/\D/g, '');
+    
+    return /^[1-9]\d{8,14}$/.test(cleanedNumber);
   }
 
+  sendWhatsAppMessage() {
+    
+    this.error = '';
+    this.response = null;
+
+    
+    if (!this.to || !this.text) {
+      this.error = 'Both phone number and message are required';
+      return;
+    }
+
+    if (!this.isValidWhatsAppNumber(this.to)) {
+      this.error = 'Invalid WhatsApp number format. Please include country code and try again.';
+      return;
+    }
+
+    this.isLoading = true;
+
+    this.service.getWhatssapp(this.to, this.text).subscribe({
+      next: (res) => {
+        this.isLoading = false;
+        
+        
+        if (res.status?.groupName === 'REJECTED') {
+          this.error = `Message could not be sent: ${res.status.description}`;
+        } else {
+          this.response = res;
+        }
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.error = err.error?.message || 
+                    err.error?.status?.description || 
+                    'Failed to send message. Please try again later.';
+      }
+    });
+  }
 }

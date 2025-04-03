@@ -1,13 +1,22 @@
 <div class="chatbot-container">
     <div class="chat-header">
-      <h2>WhatsApp Chat</h2>
+      <h2>Car Rental Feedback</h2>
+      <p>Chat with our customers</p>
     </div>
   
-    <div class="chat-messages" *ngIf="response">
-      <div class="message sent">
-        <p>To: {{to}}</p>
-        <p>{{text}}</p>
-        <small *ngIf="response">Sent successfully at {{response.timestamp | date:'short'}}</small>
+    <div class="chat-messages">
+      <div *ngFor="let msg of messages" 
+           [class]="'message ' + msg.sender">
+        <div class="message-content">
+          <p>{{msg.text}}</p>
+          <small>{{msg.time | date:'shortTime'}}</small>
+        </div>
+      </div>
+  
+      <div *ngIf="isLoading" class="message business">
+        <div class="message-content">
+          <p>Sending your message...</p>
+        </div>
       </div>
     </div>
   
@@ -20,7 +29,7 @@
         <input 
           type="text" 
           [(ngModel)]="to" 
-          placeholder="Recipient phone number"
+          placeholder="Customer's WhatsApp number"
           class="form-control"
         >
       </div>
@@ -35,9 +44,9 @@
       <button 
         (click)="sendWhatsAppMessage()" 
         class="send-button"
-        [disabled]="!to || !text"
+        [disabled]="!to || !text || isLoading"
       >
-        Send Message
+        {{isLoading ? 'Sending...' : 'Send Message'}}
       </button>
     </div>
   </div>

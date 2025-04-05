@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomerDashboardComponent } from './components/customer-dashboard/customer-dashboard.component';
 import { BookComponent } from './components/book/book.component';
 import { GetBookingComponent } from './components/get-booking/get-booking.component';
+import { ChatbotComponent } from '../../../chatbot/chatbot.component';
+import { GooogleMapComponent } from '../../gooogle-map/gooogle-map.component';
 
 
 
@@ -19,6 +21,14 @@ const routes: Routes = [
       path:"bookings",
       component:GetBookingComponent
     },
+    {
+      path:'chat',
+      component:ChatbotComponent
+    },
+    {
+      path: 'googlemap',
+      component:GooogleMapComponent
+    }
    
    
   ];

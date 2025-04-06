@@ -51,13 +51,14 @@ this.authservice.login(this.loginform.value).subscribe((res) => {
     StorageService.saveUser(user);
 
     if (StorageService.isAdminLogin()) {
+      this.massage.success('Welcome Admin!', { nzDuration: 3000 });
       this.route.navigateByUrl('/admin/dashborde'); 
     } else {
+      this.massage.success('Welcome Customer!', { nzDuration: 3000 });
       this.route.navigateByUrl('/customer/dashboard'); 
     }
   } else {
-    this.massage.error('Bad credentials', { nzDuration: 5000 }); 
-    
+    this.massage.error('Invalid credentials. Please try again.', { nzDuration: 5000 }); 
   }
 });
 }

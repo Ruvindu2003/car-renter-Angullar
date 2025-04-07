@@ -1,0 +1,75 @@
+<div class="car-rental-support" [class.open]="isOpen" [class.closed]="!isOpen">
+    <div class="support-header">
+      <div class="header-content">
+        <div class="icon-group">
+          <fa-icon [icon]="faCar" class="car-icon"></fa-icon>
+          <fa-icon [icon]="faWhatsapp" class="whatsapp-icon"></fa-icon>
+        </div>
+        <h3 class="header-title">
+          {{ isAdmin ? 'Admin Support' : 'Car Rental Support' }}
+        </h3>
+      </div>
+      <span class="status-badge" [class.online]="isOpen" [class.offline]="!isOpen">
+        {{ isOpen ? 'Available Now' : 'After Hours' }}
+      </span>
+    </div>
+  
+    <div class="support-body">
+      <div class="contact-card">
+        <p class="section-title">Contact our rental team:</p>
+        
+        <div class="contact-method">
+          <fa-icon [icon]="faWhatsapp" class="contact-icon"></fa-icon>
+          <span class="contact-text">+{{ whatsappNumber }}</span>
+        </div>
+        
+        <div class="contact-method">
+          <fa-icon [icon]="faEnvelope" class="contact-icon"></fa-icon>
+          <span class="contact-text">bookingsarrentalexample.com</span>
+        </div>
+        
+        <div class="contact-method">
+          <fa-icon [icon]="faPhone" class="contact-icon"></fa-icon>
+          <span class="contact-text">+94 78 10010 40</span>
+        </div>
+      </div>
+  
+      <div class="availability-notice" *ngIf="!isOpen">
+        <p class="notice-text">Our support team is currently offline. We respond to all messages during business hours:</p>
+        <p class="hours">
+          {{ businessHours.open }}:00 AM - {{ businessHours.close }}:00 PM<br>
+          7 days a week
+        </p>
+      </div>
+  
+      <div class="quick-inquiries">
+        <p class="section-title">Common questions:</p>
+        <div class="quick-options">
+          <button *ngFor="let reply of quickReplies" 
+                  class="quick-option"
+                  (click)="handleQuickReply(reply)">
+            {{ reply }}
+          </button>
+        </div>
+      </div>
+  
+      <div class="inquiry-input">
+        <input type="text" 
+               [(ngModel)]="message" 
+               placeholder="Ask about our cars..."
+               (keyup.enter)="handleSendMessage()"
+               [disabled]="isTyping"
+               class="message-input">
+        
+        <button class="inquiry-btn" 
+                (click)="handleSendMessage()"
+                [disabled]="isTyping || message.trim() === ''">
+          <span *ngIf="isTyping" class="btn-text">Sending...</span>
+          <span *ngIf="!isTyping" class="btn-text">
+            <fa-icon [icon]="faWhatsapp" class="btn-icon"></fa-icon>
+            Send Inquiry
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>

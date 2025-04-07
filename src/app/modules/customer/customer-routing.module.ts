@@ -5,6 +5,7 @@ import { BookComponent } from './components/book/book.component';
 import { GetBookingComponent } from './components/get-booking/get-booking.component';
 import { ChatbotComponent } from '../../../chatbot/chatbot.component';
 import { GooogleMapComponent } from '../../gooogle-map/gooogle-map.component';
+import { WhatssappBoatComponent } from '../../whatssapp-boat/whatssapp-boat.component';
 
 
 
@@ -28,6 +29,11 @@ const routes: Routes = [
     {
       path: 'googlemap',
       component:GooogleMapComponent
+    },
+    {
+      path:'whatssapp',
+      component:WhatssappBoatComponent
+
     }
    
    

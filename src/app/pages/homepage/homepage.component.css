@@ -263,3 +263,15 @@
     transition: none !important;
   }
 }
+:root {
+  --primary: #1A73E8;        /* Google Blue - Trust & Professionalism */
+  --primary-dark: #0D47A1;   /* Dark Blue */
+  --primary-light: #4285F4;  /* Lighter Blue */
+  --secondary: #34A853;      /* Google Green - For CTAs */
+  --accent: #FBBC05;         /* Google Yellow - For highlights */
+  --light: #F8F9FA;          /* Light Gray */
+  --dark: #202124;           /* Dark Gray */
+  --text: #5F6368;           /* Text Gray */
+  --white: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

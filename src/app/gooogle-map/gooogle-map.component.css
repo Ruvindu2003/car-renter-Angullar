@@ -1,26 +1,194 @@
-/* Ensure the body and html take full height */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-  
-  /* Fix for the map container */
-  #map {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 1;
-    border: none;
-    box-sizing: border-box;
-  }
-  
-  /* Optional: ensure images don't overlap the map */
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    z-index: 0;
-    position: relative;
-  }
-  
+.car-rental-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.viewer-section {
+  flex: 1;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.renderer-container {
+  width: 100%;
+  height: 100%;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid white;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rental-controls {
+  width: 350px;
+  padding: 20px;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.car-title {
+  margin-top: 0;
+  color: #333;
+}
+
+.price-display {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding: 10px;
+  background: #f8f8f8;
+  border-radius: 5px;
+}
+
+.daily-rate {
+  font-size: 16px;
+  color: #666;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2a6496;
+}
+
+.control-group {
+  margin: 20px 0;
+}
+
+.control-group h3 {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 16px;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  border: 2px solid #2a6496;
+  box-shadow: 0 0 0 2px rgba(42, 100, 150, 0.3);
+}
+
+.premium-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: #2a6496;
+  color: white;
+  border-radius: 10px;
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+.days-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.days-control button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.days-control button:hover {
+  background: #f0f0f0;
+}
+
+.days-control span {
+  min-width: 80px;
+  text-align: center;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.rotation-btn, .book-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.rotation-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.rotation-btn:hover {
+  background: #e0e0e0;
+}
+
+.book-btn {
+  background: #2a6496;
+  color: white;
+}
+
+.book-btn:hover {
+  background: #1d4b75;
+}

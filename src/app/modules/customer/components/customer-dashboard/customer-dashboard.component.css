@@ -1,4 +1,4 @@
-/* Base styles */
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f9fafc;
@@ -13,7 +13,7 @@ body {
     max-width: 1280px;
   }
   
-  /* Header styles - blue gradient */
+  
   h1 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -34,7 +34,7 @@ body {
     box-shadow: 0 15px 30px -5px rgba(26, 101, 196, 0.4);
   }
   
-  /* Grid layout */
+  
   .grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -55,7 +55,7 @@ body {
     }
   }
   
-  /* Car card styles */
+  
   .car-card {
     background-color: white;
     border-radius: 1rem;
@@ -72,7 +72,7 @@ body {
     transform: translateY(-0.6rem);
   }
   
-  /* Image section */
+  
   .image-container {
     position: relative;
     height: 13rem;
@@ -92,7 +92,7 @@ body {
     transform: scale(1.07);
   }
   
-  /* Year badge */
+ 
   .year-badge {
     position: absolute;
     top: 1rem;
@@ -106,7 +106,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
-  /* Details section */
+ 
   .details-section {
     padding: 1.75rem;
   }
@@ -145,7 +145,7 @@ body {
     margin-right: 0.5rem;
   }
   
-  /* Car details */
+ 
   .details-grid {
     margin-bottom: 1.75rem;
   }
@@ -195,7 +195,7 @@ body {
     margin-bottom: 1.25rem;
   }
   
-  /* Price display */
+  
   .price-container {
     background-image: linear-gradient(to right, #eef6ff, #dbeafe);
     padding: 1.25rem;
@@ -234,7 +234,7 @@ body {
     margin-left: 0.25rem;
   }
   
-  /* Action buttons */
+  
   .action-row {
     display: flex;
     gap: 0.75rem;
@@ -283,7 +283,7 @@ body {
     color: #4b5563;
   }
   
-  /* Animation effects */
+  
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -295,7 +295,7 @@ body {
     opacity: 0;
   }
   
-  /* Custom scrollbar */
+  
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -314,7 +314,7 @@ body {
   }
 
 
-  /* Container for the floating massage icon */
+
   .massage-icon-container {
     position: fixed;
     bottom: 24px;
@@ -323,11 +323,10 @@ body {
     cursor: pointer;
   }
 
-  /* Massage icon styling with animation */
   .massage-icon {
     width: 56px;
     height: 56px;
-    background: #f59e0b; /* amber-500 */
+    background: #f59e0b; 
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -350,7 +349,6 @@ body {
     color: white;
   }
 
-  /* Popup overlay */
   .popup-overlay {
     position: fixed;
     top: 0;
@@ -373,7 +371,7 @@ body {
     visibility: visible;
   }
 
-  /* Popup content */
+
   .popup-content {
     background: white;
     border-radius: 12px;
@@ -389,7 +387,7 @@ body {
     transform: translateY(0);
   }
 
-  /* Close button */
+  
   .close-btn {
     position: absolute;
     top: 16px;
@@ -397,15 +395,15 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    color: #6b7280; /* gray-500 */
+    color: #6b7280; 
     transition: color 0.2s ease;
   }
 
   .close-btn:hover {
-    color: #f59e0b; /* amber-500 */
+    color: #f59e0b; 
   }
 
-  /* Pulsing animation */
+  
   @keyframes pulse {
     0% {
       box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
@@ -418,13 +416,13 @@ body {
     }
   }
 
-  /* Tooltip */
+  
   .tooltip {
     position: absolute;
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: #1f2937; /* gray-800 */
+    background: #1f2937; 
     color: white;
     padding: 4px 8px;
     border-radius: 4px;

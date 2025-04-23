@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 import { StorageService } from '../../../../auth/services/storage/storage.service';
@@ -9,7 +9,7 @@ import { StorageService } from '../../../../auth/services/storage/storage.servic
 @Component({
   selector: 'app-book',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule,RouterLink],
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
@@ -95,5 +95,12 @@ export class BookComponent {
         this.isSpinning = false;
       }
     });
+  }
+  cancelBooking() { 
+    this.bookingForm.reset();
+    this.existingImages = []; 
+    this.isSpinning = false;
+    this.message.info('Booking cancelled');
+    
   }
 }  

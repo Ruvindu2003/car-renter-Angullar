@@ -34,7 +34,7 @@
             <td class="py-3 px-4">{{booking.fromDate | date:'shortDate'}}</td>
             <td class="py-3 px-4">{{booking.toDate | date:'shortDate'}}</td>
             <td class="py-3 px-4">{{booking.days}}</td>
-            <td class="py-3 px-4">${{booking.amount}}</td>
+            <td class="py-3 px-4">RS {{booking.amount}}</td>
             <td class="py-3 px-4">
               <span 
                 [class.bg-yellow-100]="booking.bookCarStatus === 'PENDING'"

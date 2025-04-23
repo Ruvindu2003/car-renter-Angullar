@@ -1,12 +1,15 @@
 /* Car Rental Login - Enhanced Styling */
 :root {
-    --primary-blue: #3b82f6;
-    --hover-blue: #2563eb;
-    --dark-blue: #1e3a8a;
-    --light-blue: #93c5fd;
-    --white: #ffffff;
-    --glass-bg: rgba(255, 255, 255, 0.15);
-    --form-bg: rgba(255, 255, 255, 0.2);
+  :root {
+    --primary-blue: #60a5fa;      /* Lighter sky blue */
+    --hover-blue: #3b82f6;        /* Medium blue for hover states */
+    --dark-blue: #1e40af;         /* Deep blue for shadows/accents */
+    --light-blue: #bfdbfe;        /* Very light blue for highlights */
+    --lightest-blue: #eff6ff;     /* Almost white with blue tint */
+    --white: #ffffff;             /* Pure white */
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --form-bg: rgba(239, 246, 255, 0.25);
+  }
   }
   
   /* Body and background */

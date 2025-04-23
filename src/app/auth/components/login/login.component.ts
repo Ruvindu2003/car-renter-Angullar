@@ -7,9 +7,6 @@ import { ActivatedRoute } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
 import { Router } from '@angular/router';
 import { CustomerModule } from '../../../modules/customer/customer.module';
-
-
-
 @Component({
   selector: 'app-login',
   standalone: true, 
@@ -30,13 +27,15 @@ export class LoginComponent {
   }
 
   login() {
-    console.log('Form Value:', this.loginform.value);
-    if (this.loginform.valid) {
+   console.log('Form Value:', this.loginform.value);
+   if (this.loginform.valid) {
       console.log('Login successful:', this.loginform.value);
-    } else {
-      console.log('Login failed, form is invalid.');
+   } else {
+   console.log('Login failed, form is invalid.');
 
-    }
+   alert('Please fill out the form correctly.');
+   return;
+  }
    
 
 this.authservice.login(this.loginform.value).subscribe((res) => {
@@ -81,5 +80,5 @@ private passwordStrengthValidator(control: AbstractControl): ValidationErrors | 
   const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(value);
 
   return hasUpperCase && hasNumber && hasSpecialChar ? null : { strength: true };
-}
+  }
 }

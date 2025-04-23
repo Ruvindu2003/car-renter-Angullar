@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service'; 
 
 @Component({
@@ -14,7 +14,7 @@ export class SignupComponent {
   isSpinning: boolean = false; 
   signupForm!: FormGroup; 
 
-  constructor(private fb: FormBuilder, private authservice: AuthService) {}
+  constructor(private fb: FormBuilder, private authservice: AuthService,private route:Router) {}
 
   ngOnInit() {
     this.signupForm = this.fb.group({
@@ -40,6 +40,7 @@ export class SignupComponent {
   register() {
     if (this.signupForm.invalid) {
       console.error('Form is invalid');
+      alert('Please fill out the form correctly.');
       return;
     }
 
@@ -50,12 +51,13 @@ export class SignupComponent {
       next: (res) => {
         this.isSpinning = false; 
         console.log('Registration successful', res);
-
+        this.route.navigateByUrl('/Login');
+        alert('Registration successful! Welcome aboard.');
       },
       error: (err) => {
         this.isSpinning = false; 
         console.error('Registration failed', err);
-        
+        alert('Registration failed. Please try again later.');
       }
     });
   }

@@ -51,7 +51,7 @@ export class GooogleMapComponent implements AfterViewInit, OnDestroy {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xf5f5f5);
 
-    // Enhanced lighting for better car visualization
+   
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     this.scene.add(ambientLight);
 
@@ -101,7 +101,7 @@ export class GooogleMapComponent implements AfterViewInit, OnDestroy {
   }
 
   private prepareModel(): void {
-    // Center and scale model
+   
     const box = new THREE.Box3().setFromObject(this.carModel);
     const center = box.getCenter(new THREE.Vector3());
     this.carModel.position.sub(center);
@@ -110,7 +110,6 @@ export class GooogleMapComponent implements AfterViewInit, OnDestroy {
     const scale = 5 / Math.max(size, 1);
     this.carModel.scale.set(scale, scale, scale);
 
-    // Enable shadows for all meshes
     this.carModel.traverse((child) => {
       if (child instanceof THREE.Mesh) {
         child.castShadow = true;
@@ -133,7 +132,7 @@ export class GooogleMapComponent implements AfterViewInit, OnDestroy {
     body.position.y = 0.75;
     body.castShadow = true;
 
-    // Create wheels
+    
     const wheelMaterial = new THREE.MeshStandardMaterial({ 
       color: 0x333333,
       metalness: 0.8,
@@ -245,7 +244,7 @@ export class GooogleMapComponent implements AfterViewInit, OnDestroy {
       days: this.rentalDays,
       total: this.totalPrice
     });
-    // In a real app, you would call a booking service here
+    
     alert(`Booking confirmed for ${this.carName} for ${this.rentalDays} days. Total: $${this.totalPrice}`);
   }
 

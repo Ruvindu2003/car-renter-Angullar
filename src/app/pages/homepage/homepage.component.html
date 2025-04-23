@@ -544,9 +544,14 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1>Best Car Rental Service in Your Area</h1>
-          <p>Welcome to LuxeWheels Rental. We provide the best quality cars at affordable prices. Always ready to serve your needs for car rental for 24 hours.</p>
-          <a href="#" class="btn btn-primary">Start Renting a Car</a>
+          <h1 class="hero-heading">Best Car Rental Service in Your Area</h1>
+          <p class="hero-description">Welcome to LuxeWheels Rental. We provide the best quality cars at affordable prices. Always ready to serve your needs for car rental for 24 hours.</p>
+          <a routerLink="/Rejister" class="hero-cta-button">
+            Start Renting a Car
+            <svg class="cta-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
         <div class="hero-image">
           <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Luxury Car">
@@ -686,12 +691,14 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
   <div class="container">
     <div class="cta">
-      <h2>Rent a Car Now</h2>
-      <p>Get the best car rental experience with our premium service. Book now and enjoy your journey with comfort and style.</p>
-      <a routerLink="/Rejister" class="btn btn-secondary">Start Renting a Car</a>
+      <h2 class="cta-title">Rent a Car Now</h2>
+      <p class="cta-text">Get the best car rental experience with our premium service.</p>
+      <button routerLink="/Rejister" class="cta-button-white">
+        <span class="button-text">Start Renting a Car</span>
+        <span class="button-icon">→</span>
+      </button>
     </div>
   </div>
 

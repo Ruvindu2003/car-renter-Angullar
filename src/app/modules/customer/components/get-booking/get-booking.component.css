@@ -1,87 +1,160 @@
 /* Base styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7; /* Light background for the page */
-    color: #333;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background-color: #f8fafc; /* Very light blue-white background */
+    color: #334155;
+    line-height: 1.6;
 }
 
 /* Table Container */
 .overflow-x-auto {
     max-width: 100%;
-    margin: 20px 0;
+    margin: 30px auto;
+    padding: 0 20px;
 }
 
 /* Table Styling */
 table {
     width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff; /* White background for the table */
-    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff; /* Pure white background */
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the table */
+    box-shadow: 0 4px 16px rgba(173, 216, 230, 0.3); /* Soft light blue shadow */
 }
 
 /* Table Header */
 thead {
-    background-color: #1E3A8A; /* Blue background for the header */
-    color: #ffffff; /* White text */
+    background-color: #e6f2ff; /* Very light blue header */
+    color: #2563eb; /* Medium blue text */
+    border-bottom: 2px solid #bfdbfe; /* Light blue border */
 }
 
 th {
-    padding: 12px 20px;
+    padding: 16px 24px;
     text-align: left;
-    text-transform: uppercase;
-    font-size: 0.875rem; /* Small but readable text */
+    font-weight: 600;
+    font-size: 0.875rem;
     letter-spacing: 0.5px;
 }
 
 /* Table Body */
-tbody {
-    color: #4b5563; /* Dark gray text */
+tbody tr {
+    transition: all 0.25s ease;
 }
 
-tr {
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid #e2e8f0; /* Light gray border between rows */
 }
 
 td {
-    padding: 12px 20px;
+    padding: 16px 24px;
     text-align: left;
+    font-size: 0.9375rem;
 }
 
 /* Row hover effect */
-tr:hover {
-    background-color: #f1f5f9; /* Light gray background on hover */
+tbody tr:hover {
+    background-color: #f0f7ff; /* Very light blue on hover */
 }
 
-/* Blue and White Text for the Columns */
+/* Column styling */
 td:nth-child(1),
 td:nth-child(2),
 td:nth-child(3) {
-    color: #1E3A8A; /* Blue text color for date columns */
+    color: #3b82f6; /* Light blue text */
+    font-weight: 500;
 }
 
 td:nth-child(4) {
-    color: #34D399; /* Green color for price */
-}
-
-td:nth-child(5) {
-    font-weight: bold;
-    color: #D97706; /* Amber color for status */
+    color: #10b981; /* Emerald green for price */
+    font-weight: 600;
 }
 
 /* Status styling */
 td:nth-child(5) {
-    font-size: 0.875rem;
+    font-weight: 600;
     text-transform: capitalize;
-    background-color: #FDE047; /* Soft yellow background */
-    border-radius: 4px;
-    padding: 6px 10px;
+    position: relative;
+    padding-left: 32px;
+}
+
+td:nth-child(5):before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #3b82f6; /* Light blue dot */
+}
+
+/* Status variations */
+td.status-pending {
+    color: #f59e0b; /* Amber */
+}
+
+td.status-pending:before {
+    background-color: #f59e0b;
+}
+
+td.status-completed {
+    color: #10b981; /* Emerald green */
+}
+
+td.status-completed:before {
+    background-color: #10b981;
+}
+
+td.status-cancelled {
+    color: #ef4444; /* Red */
+}
+
+td.status-cancelled:before {
+    background-color: #ef4444;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    th, td {
-        padding: 8px 12px;
+    .overflow-x-auto {
+        padding: 0 12px;
     }
+    
+    th, td {
+        padding: 12px 16px;
+    }
+    
+    td:nth-child(5):before {
+        left: 12px;
+    }
+}
+
+/* Add subtle animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+tbody tr {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Add delay for staggered animation */
+tbody tr:nth-child(1) { animation-delay: 0.05s; }
+tbody tr:nth-child(2) { animation-delay: 0.1s; }
+tbody tr:nth-child(3) { animation-delay: 0.15s; }
+tbody tr:nth-child(4) { animation-delay: 0.2s; }
+tbody tr:nth-child(5) { animation-delay: 0.25s; }
+
+::ng-deep td:nth-child(1),
+::ng-deep td:nth-child(2),
+::ng-deep td:nth-child(3) {
+  background-color: white !important;
+}
+
+::ng-deep td {
+  background-color: white !important;
 }

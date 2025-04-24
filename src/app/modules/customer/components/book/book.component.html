@@ -77,7 +77,7 @@
 
         <!-- Action Buttons -->
         <div class="flex justify-end gap-3 mt-8">
-            <button type="button" (click)="bookCar()" [disabled]="isSpinning || !bookingForm.valid"
+            <button type="button" (click)="bookCar()" [disabled]="isSpinning || !bookingForm.valid" routerLink="/customer/bookings"
                 class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
                 <span *ngIf="!isSpinning">Book Now</span>
                 <span *ngIf="isSpinning" class="animate-spin">⏳</span>

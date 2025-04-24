@@ -206,6 +206,13 @@
     text-shadow: 0 0 10px rgba(147, 197, 253, 0.7);
     color: var(--white) !important;
   }
+
+  ::ng-deep .bg-gradient-to-br {
+    background: linear-gradient(300deg,deepskyblue,white) !important;
+    background-size: 120% 120% !important;
+    animation: gradient-animation 6s ease infinite !important;
+  }
+  
   
   /* Animations for page load */
   @keyframes fadeIn {

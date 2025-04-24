@@ -1,59 +1,151 @@
-# CarRenter
+# Car Rental Angular Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+## Overview
+This Angular project is a car rental management system with separate interfaces for customers and administrators. The application allows customers to browse cars, make bookings, and provide feedback, while administrators can manage the car inventory and process booking requests.
 
-## Development server
+## Features
 
-To start a local development server, run:
+### Customer Features
+- User Registration and Login
+- Browse available cars
+- Make car bookings
+- View booking status
+- Submit feedback
+- Manage user profile
 
-```bash
-ng serve
+### Admin Features
+- Admin Dashboard
+- Car Management (Add, Update, Delete)
+- Search car functionality
+- Process booking requests (Accept/Reject)
+- Update car information
+- Delete car listings
+
+## Project Structure
+
+```
+car-rental-app/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── admin/
+│   │   │   │   ├── dashboard/
+│   │   │   │   ├── car-management/
+│   │   │   │   ├── login/
+│   │   │   │   └── booking-management/
+│   │   │   ├── customer/
+│   │   │   │   ├── dashboard/
+│   │   │   │   ├── registration/
+│   │   │   │   ├── login/
+│   │   │   │   ├── booking/
+│   │   │   │   └── feedback/
+│   │   │   └── shared/
+│   │   │       ├── header/
+│   │   │       ├── footer/
+│   │   │       └── car-card/
+│   │   ├── models/
+│   │   │   ├── user.model.ts
+│   │   │   ├── car.model.ts
+│   │   │   ├── booking.model.ts
+│   │   │   └── feedback.model.ts
+│   │   ├── services/
+│   │   │   ├── auth.service.ts
+│   │   │   ├── car.service.ts
+│   │   │   ├── booking.service.ts
+│   │   │   └── feedback.service.ts
+│   │   ├── guards/
+│   │   │   ├── auth.guard.ts
+│   │   │   └── admin.guard.ts
+│   │   ├── app.component.ts
+│   │   ├── app.component.html
+│   │   ├── app.component.scss
+│   │   ├── app.module.ts
+│   │   └── app-routing.module.ts
+│   ├── assets/
+│   ├── environments/
+│   │   ├── environment.ts
+│   │   └── environment.prod.ts
+│   ├── index.html
+│   └── styles.scss
+├── angular.json
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Installation
 
-## Code scaffolding
+### Prerequisites
+- Node.js (v16+)
+- Angular CLI (v15+)
+- npm or yarn
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Setup Instructions
+1. Clone the repository
+   ```
+   git clone https://github.com/yourusername/car-rental-angular.git
+   ```
 
-```bash
-ng generate component component-name
-```
+2. Navigate to the project directory
+   ```
+   cd car-rental-angular
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Install dependencies
+   ```
+   npm install
+   ```
 
-```bash
-ng generate --help
-```
+4. Run the development server
+   ```
+   ng serve
+   ```
 
-## Building
+5. Open your browser and navigate to `http://localhost:4200`
 
-To build the project run:
+## User Flow
 
-```bash
-ng build
-```
+### Customer Journey
+1. Register a new account or login
+2. Browse available cars on the dashboard
+3. Select a car and make a booking
+4. View booking status on customer dashboard
+5. Provide feedback after using the service
+6. Logout
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Admin Journey
+1. Login to admin portal
+2. View all cars and bookings in the admin dashboard
+3. Add, update, or delete cars from inventory
+4. Accept or reject booking requests
+5. Logout
 
-## Running unit tests
+## Development Guidelines
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Coding Standards
+- Follow Angular style guide
+- Use TypeScript interfaces for models
+- Implement proper component structure
+- Utilize Angular services for data management
+- Implement guards for route protection
 
-```bash
-ng test
-```
+### Testing
+- Write unit tests for components and services
+- Implement end-to-end tests for critical user flows
 
-## Running end-to-end tests
+## Deployment
+1. Build production-ready files
+   ```
+   ng build --prod
+   ```
 
-For end-to-end (e2e) testing, run:
+2. Deploy the contents of the `dist/` folder to your hosting provider
 
-```bash
-ng e2e
-```
+## Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+This project is licensed under the MIT License

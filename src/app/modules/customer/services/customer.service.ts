@@ -38,7 +38,7 @@ getWhatssapp(to:string ,text:string):Observable<any>{
 
   return this.http.post(`${baseUrl}send`, message).pipe(
     catchError(error => {
-      // Simplify error handling
+    
       const errorMsg = error.error?.status?.description 
                      || error.message 
                      || 'Failed to send message';

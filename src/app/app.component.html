@@ -1,7 +1,7 @@
 <div *ngIf="!isAdminLogin && !isCustomerLogin">
   <nav class="bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <a routerLink="/Home" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img class="h-8" src="https://img.icons8.com/3d-fluency/94/car.png" alt="car" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">CAR RENTAL</span>
       </a>
@@ -31,7 +31,7 @@
 <div *ngIf="isAdminLogin">
   <nav class="bg-gradient-to-r from-green-500 to-teal-600 shadow-lg">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <a routerLink="/Home" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img class="h-8" src="https://img.icons8.com/3d-fluency/94/car.png" alt="car" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">CAR RENTAL</span>
       </a>
@@ -70,7 +70,7 @@
 <div *ngIf="isCustomerLogin">
   <nav class="bg-gradient-to-r from-purple-500 to-pink-600 shadow-lg">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <a routerLink="/Home" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img class="h-8" src="https://img.icons8.com/3d-fluency/94/car.png" alt="car" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">CAR RENTAL</span>
       </a>

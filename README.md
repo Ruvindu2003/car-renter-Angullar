@@ -8,7 +8,11 @@ This Angular project is a car rental management system with separate interfaces 
 ### Customer Features
 - User Registration and Login
 - Browse available cars
-- Make car bookings
+  
+<!-- Image removed as per request. No photo will be added here. -->
+
+
+
 - View booking status
 - Submit feedback
 - Manage user profile

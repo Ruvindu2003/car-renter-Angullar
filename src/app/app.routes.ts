@@ -7,6 +7,11 @@ import { ChatbotComponent } from '../chatbot/chatbot.component';
 
 export const routes: Routes = [
     {
+        path:"",
+        component:HomepageComponent
+
+    },
+    {
         path:"Home",
         component:HomepageComponent
         

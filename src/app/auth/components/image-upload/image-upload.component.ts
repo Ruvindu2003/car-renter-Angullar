@@ -20,6 +20,9 @@ export class ImageUploadComponent {
   selectedFile!: File;
   imageUrl: string = '';
   imageurlcomplocation = '';
+  
+    num :String ="defewfew"
+
 
   constructor(private http: HttpClient,private imagecomppath:ImageCompPathService) {}
 
@@ -32,6 +35,8 @@ export class ImageUploadComponent {
       alert("Please select an image first!");
       return;
     }
+
+   
 
     const formData = new FormData();
     formData.append('file', this.selectedFile);

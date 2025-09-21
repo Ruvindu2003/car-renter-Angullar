@@ -12,6 +12,9 @@ export class GetBookingComponent {
 isSpning=false
 bookCar:any
 
+private customer :String[]=[]
+car:string='efwefewf'
+
   constructor(private service:CustomerService) {
     this.getBooking();
    }

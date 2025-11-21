@@ -14,6 +14,11 @@ export class AdminBookingComponent {
   bookcars :any
 
 
+
+
+  ngOnInit(): void {
+    this.getBooking();
+  }
   constructor(private service: AdminService,private massage:NzMessageService) {
     this.getBooking()
    }

@@ -11,25 +11,30 @@ import { SearchCarComponent } from './components/search-car/search-car.component
 const routes: Routes = [
   {
     path:"dashborde",
-    component:AdminDashboardComponent
+    component:AdminDashboardComponent,
+    title:"Admin Dashborde"
   },
   {
     path:"car",
-    component:PostCarComponent
+    component:PostCarComponent,
+    title:"Post Car"
+ 
   },
   {
     path:"car/:id/edit",
-    component:UpdateFormComponent
+    component:UpdateFormComponent,
+    title:"Update Car"
   },
 
   {
     path:"adminbooking",
-    component:AdminBookingComponent
+    component:AdminBookingComponent,
+    title:"Admin Booking"
   },
   {
     path:"car/search",
-    component:SearchCarComponent
-
+    component:SearchCarComponent,
+    title:"Search Car"
   }
 
 

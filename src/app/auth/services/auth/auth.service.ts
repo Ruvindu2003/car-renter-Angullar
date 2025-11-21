@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { string } from 'three/src/nodes/TSL.js';
 
 const BASICUrl=["http://localhost:8080"]
 @Injectable({

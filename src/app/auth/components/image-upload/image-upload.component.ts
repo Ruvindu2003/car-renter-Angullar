@@ -20,8 +20,7 @@ export class ImageUploadComponent {
   selectedFile!: File;
   imageUrl: string = '';
   imageurlcomplocation = '';
-  
-    num :String ="defewfew"
+   num :String ="defewfew"
 
 
   constructor(private http: HttpClient,private imagecomppath:ImageCompPathService) {}
